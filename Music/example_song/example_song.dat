@@ -1,0 +1,62 @@
+Title: "Example Song"
+Artist: "Everett"
+BPM: 130
+EasyStems: "EASY1.WAV", "EASY2.WAV", "EASY3.WAV", "EASY4.WAV"
+HardStems: "ADV1.WAV", "ADV2.WAV", "ADV3.WAV", "ADV4.WAV", "ADV5.WAV", "ADV6.WAV", "ADV7.WAV", "ADV8.WAV", "ADV9.WAV"
+
+// song bars begin at 0
+Offset: 0
+
+// there are 8 notes / bar maximum 
+Precition: 8
+
+// song ends on the last beat
+Tail: 0
+
+// main chord pad, repeating 3 notes for 8 times
+// PadIndex, StemIndex, OffsetMS, Bar, Fraction
+
+// EX: 
+// first pad, first stem, no offset, first bar, first note
+//EasyNote: 0, 0, 0, 0, 0
+// first pad, first stem, no offset, first bar, 6th note
+//EasyNote: 0, 0, 0, 0, 6
+// first pad, first stem, no offset, fourth bar, second note
+//EasyNote: 0, 0, 0, 3, 2
+
+// original pattern
+EasyNote: 0, 0, 0, 0, 0
+EasyNote: 0, 0, 0, 0, 6
+EasyNote: 0, 0, 0, 3, 2
+// same thing, 4 bars later
+EasyNote: 0, 0, 0, 4, 0
+EasyNote: 0, 0, 0, 4, 6
+EasyNote: 0, 0, 0, 7, 2
+// same thing, 4 bars later
+EasyNote: 0, 0, 0, 8, 0
+EasyNote: 0, 0, 0, 8, 6
+EasyNote: 0, 0, 0, 11, 2
+// same thing, 4 bars later
+EasyNote: 0, 0, 0, 12, 0
+EasyNote: 0, 0, 0, 12, 6
+EasyNote: 0, 0, 0, 15, 2
+// same thing, 4 bars later
+EasyNote: 0, 0, 0, 16, 0
+EasyNote: 0, 0, 0, 16, 6
+EasyNote: 0, 0, 0, 19, 2
+// same thing, 4 bars later
+EasyNote: 0, 0, 0, 20, 0
+EasyNote: 0, 0, 0, 20, 6
+EasyNote: 0, 0, 0, 23, 2
+// same thing, 4 bars later
+EasyNote: 0, 0, 0, 24, 0
+EasyNote: 0, 0, 0, 24, 6
+EasyNote: 0, 0, 0, 27, 2
+// same thing, 4 bars later
+EasyNote: 0, 0, 0, 28, 0
+EasyNote: 0, 0, 0, 28, 6
+EasyNote: 0, 0, 0, 31, 2
+
+AdvNote: 24
+EasyHigh: 0
+AdvHigh: 0
