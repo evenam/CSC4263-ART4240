@@ -53,6 +53,7 @@ public class NoteGenerator : MonoBehaviour
 		Camera.main.GetComponent<AudioSource>().Play();
 	}
 
+	// TODO: handle the obviously-omitted end of song case
 	void deployBeat() {
 		NoteData note = notesToUse[index];
 		pads[note.midiPadIndex].onBeat(note);
