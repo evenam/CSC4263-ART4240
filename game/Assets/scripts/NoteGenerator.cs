@@ -48,9 +48,9 @@ public class NoteGenerator : MonoBehaviour
 		Invoke("deployBeat", notesToUse[0].offsetMS);
 	}
 
-	// TODO: begin music
-	void beginAudio() { 
-		// use song.stems
+	// TODO: use stems instead of full track
+	void beginAudio() {
+		Camera.main.GetComponent<AudioSource>().Play();
 	}
 
 	void deployBeat() {
