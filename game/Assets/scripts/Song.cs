@@ -91,7 +91,7 @@ public class SongData
         data.bar = UInt32.Parse(sArgs[3]);
         data.fraction = UInt32.Parse(sArgs[4]);
 
-		double beatsPerMilli = (double)(this.BPM) / 60d / 1000d;
+		double beatsPerMilli = (this.notePrecision / 4.0) * (double)(this.BPM) / 60d / 1000d;
 		double beatIndex = ((data.bar * this.notePrecision) + data.fraction);
 		data.offsetMS = (uint)(beatIndex / beatsPerMilli);
         return data;
@@ -186,7 +186,7 @@ public class SongData
                 theReader.Close();
             }
 			// Sort notes by millisecond
-			easyNoteData.Sort((x, y) => (int) (x.offsetMS - y.offsetMS) );
+			easyNoteData.Sort((x, y) => (int)(x.offsetMS - y.offsetMS));
 			advNoteData.Sort((x, y) => (int)(x.offsetMS - y.offsetMS));
         }
         catch (Exception e)

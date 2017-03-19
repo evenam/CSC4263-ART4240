@@ -7,12 +7,12 @@ using UnityEngine;
  */
 public class NoteGenerator : MonoBehaviour
 {
-	// References to the pad gameobjects' scripts
-	public Pad[] pads;
+	// References to the pad gameobjects
+	public GameObject[] pads;
 	// The time of the "GET READY" animation, should there be one.
 	public float prepTime = 3;
 	// The total time from the beginning of the pad animation to the onset in the song
-	public float animationTime = 3;
+	public float animationTime = 0;
 
 	// TODO: make this work with difficulty selection.
 	public bool isEasy = true;
@@ -56,12 +56,12 @@ public class NoteGenerator : MonoBehaviour
 	// TODO: handle the obviously-omitted end of song case
 	void deployBeat() {
 		NoteData note = notesToUse[index];
-		pads[note.midiPadIndex].onBeat(note);
+		pads[note.midiPadIndex].GetComponent<Pad>().onBeat(note);
 		index++;
 		// if this note is a chord
 		while (notesToUse[index].offsetMS == note.offsetMS)
 		{
-			pads[notesToUse[index].midiPadIndex].onBeat(notesToUse[index]);
+			pads[notesToUse[index].midiPadIndex].GetComponent<Pad>().onBeat(notesToUse[index]);
 			index++;
 		}
 
