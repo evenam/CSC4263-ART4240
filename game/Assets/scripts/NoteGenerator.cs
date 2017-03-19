@@ -26,8 +26,8 @@ public class NoteGenerator : MonoBehaviour
 	void Start()
 	{
 		// Load the song
-		print(Application.persistentDataPath);
-		song = new SongData("<PATH_OMITTED>");
+		print(Application.dataPath);
+		song = new SongData(Application.dataPath+"/Music/example_song/example_song.dat");
 
 		if (isEasy)
 			notesToUse = song.easyNoteData;
@@ -43,7 +43,8 @@ public class NoteGenerator : MonoBehaviour
 
 	void afterPreSong() {
 		// Be sure to take into account the delay needed for animations
-		Invoke("beginSong", animationTime);
+		Invoke("beginAudio", animationTime);
+		// TODO: are all inital offsets at 0?
 		Invoke("deployBeat", notesToUse[0].offsetMS);
 	}
 
@@ -64,7 +65,8 @@ public class NoteGenerator : MonoBehaviour
 		}
 
 		// Deploy the next note, remember index was already incremented
-		Invoke("deployBeat", notesToUse[index].offsetMS - note.offsetMS);
+		// Invoke is in seconds, not milliseconds
+		Invoke("deployBeat", (float)(notesToUse[index].offsetMS - note.offsetMS) / 1000F);
 	}
 
 }

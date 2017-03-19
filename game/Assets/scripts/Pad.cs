@@ -20,6 +20,6 @@ public class Pad : MonoBehaviour {
 
 	// Called when this pad should begin showing a beat
 	public void onBeat(NoteData beat) {
-
+		print("Pad " + beat.midiPadIndex + " got note at " + beat.offsetMS);
 	}
 }
