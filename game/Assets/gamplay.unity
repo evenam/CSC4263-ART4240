@@ -180,11 +180,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4238458337627212, guid: 219a700610e334460bab8f7d1d939f84, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.13
+      value: 1.23
       objectReference: {fileID: 0}
     - target: {fileID: 4238458337627212, guid: 219a700610e334460bab8f7d1d939f84, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.39
+      value: -1.2
       objectReference: {fileID: 0}
     - target: {fileID: 4238458337627212, guid: 219a700610e334460bab8f7d1d939f84, type: 2}
       propertyPath: m_LocalPosition.z
@@ -260,11 +260,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4238458337627212, guid: 219a700610e334460bab8f7d1d939f84, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.96
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4238458337627212, guid: 219a700610e334460bab8f7d1d939f84, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.48
+      value: -1.25
       objectReference: {fileID: 0}
     - target: {fileID: 4238458337627212, guid: 219a700610e334460bab8f7d1d939f84, type: 2}
       propertyPath: m_LocalPosition.z
@@ -640,7 +640,7 @@ MonoBehaviour:
   - {fileID: 1966677265}
   - {fileID: 45568912}
   prepTime: 3
-  animationTime: 250
+  animationTime: 0
   isEasy: 1
 --- !u!82 &2064229520
 AudioSource:

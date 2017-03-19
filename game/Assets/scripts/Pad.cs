@@ -10,7 +10,7 @@ public class Pad : MonoBehaviour {
 
 	public KeyCode triggerKey;
 
-	public const uint windowMS = 350;
+	public const uint windowMS = 250;
 	public const uint alertMS = 100;
 
 	private float window, alert;
