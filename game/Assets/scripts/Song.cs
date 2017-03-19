@@ -87,9 +87,13 @@ public class SongData
         NoteData data;
         data.midiPadIndex = UInt32.Parse(sArgs[0]);
         data.stemIndex = UInt32.Parse(sArgs[1]);
-        data.offsetMS = UInt32.Parse(sArgs[2]);
+        // data.offsetMS = UInt32.Parse(sArgs[2]);
         data.bar = UInt32.Parse(sArgs[3]);
         data.fraction = UInt32.Parse(sArgs[4]);
+
+		double beatsPerMilli = (double)(this.BPM) / 60d / 1000d;
+		double beatIndex = ((data.bar * this.notePrecision) + data.fraction);
+		data.offsetMS = (uint)(beatIndex / beatsPerMilli);
         return data;
     }
 
@@ -181,6 +185,9 @@ public class SongData
                 // cleanup
                 theReader.Close();
             }
+			// Sort notes by millisecond
+			easyNoteData.Sort((x, y) => (int) (x.offsetMS - y.offsetMS) );
+			advNoteData.Sort((x, y) => (int)(x.offsetMS - y.offsetMS));
         }
         catch (Exception e)
         {
@@ -193,11 +200,11 @@ public class SongData
 
 public class Song : MonoBehaviour
 {
-    // used this to test. 
-    public void Start()
-    {
-        print(Application.persistentDataPath);
-        SongData x = new SongData("<PATH_OMITTED>");
-        Debug.Break();
-    }
+	// used this to test.
+	public void Start()
+	{
+		print(Application.persistentDataPath);
+		SongData x = new SongData("<PATH_OMITTED>");
+		Debug.Break();
+	}
 }

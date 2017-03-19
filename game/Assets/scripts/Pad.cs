@@ -19,7 +19,7 @@ public class Pad : MonoBehaviour {
 	}
 
 	// Called when this pad should begin showing a beat
-	public void onBeat(Note beat) {
+	public void onBeat(NoteData beat) {
 
 	}
 }
