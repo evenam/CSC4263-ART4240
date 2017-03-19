@@ -100,11 +100,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4238458337627212, guid: 219a700610e334460bab8f7d1d939f84, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.96
+      value: -0.9
       objectReference: {fileID: 0}
     - target: {fileID: 4238458337627212, guid: 219a700610e334460bab8f7d1d939f84, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.48
+      value: -3.26
       objectReference: {fileID: 0}
     - target: {fileID: 4238458337627212, guid: 219a700610e334460bab8f7d1d939f84, type: 2}
       propertyPath: m_LocalPosition.z
@@ -158,6 +158,11 @@ Prefab:
       propertyPath: m_Name
       value: EasyPad4
       objectReference: {fileID: 0}
+    - target: {fileID: 114132422773942570, guid: 219a700610e334460bab8f7d1d939f84,
+        type: 2}
+      propertyPath: triggerKey
+      value: 97
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 219a700610e334460bab8f7d1d939f84, type: 2}
   m_IsPrefabParent: 0
@@ -175,11 +180,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4238458337627212, guid: 219a700610e334460bab8f7d1d939f84, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.96
+      value: 1.13
       objectReference: {fileID: 0}
     - target: {fileID: 4238458337627212, guid: 219a700610e334460bab8f7d1d939f84, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.48
+      value: -1.39
       objectReference: {fileID: 0}
     - target: {fileID: 4238458337627212, guid: 219a700610e334460bab8f7d1d939f84, type: 2}
       propertyPath: m_LocalPosition.z
@@ -232,6 +237,11 @@ Prefab:
     - target: {fileID: 1828935390713016, guid: 219a700610e334460bab8f7d1d939f84, type: 2}
       propertyPath: m_Name
       value: EasyPad2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114132422773942570, guid: 219a700610e334460bab8f7d1d939f84,
+        type: 2}
+      propertyPath: triggerKey
+      value: 119
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 219a700610e334460bab8f7d1d939f84, type: 2}
@@ -453,11 +463,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4238458337627212, guid: 219a700610e334460bab8f7d1d939f84, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.96
+      value: 1.24
       objectReference: {fileID: 0}
     - target: {fileID: 4238458337627212, guid: 219a700610e334460bab8f7d1d939f84, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.48
+      value: -3.27
       objectReference: {fileID: 0}
     - target: {fileID: 4238458337627212, guid: 219a700610e334460bab8f7d1d939f84, type: 2}
       propertyPath: m_LocalPosition.z
@@ -510,6 +520,11 @@ Prefab:
     - target: {fileID: 1828935390713016, guid: 219a700610e334460bab8f7d1d939f84, type: 2}
       propertyPath: m_Name
       value: EasyPad3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114132422773942570, guid: 219a700610e334460bab8f7d1d939f84,
+        type: 2}
+      propertyPath: triggerKey
+      value: 115
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 219a700610e334460bab8f7d1d939f84, type: 2}
@@ -624,8 +639,8 @@ MonoBehaviour:
   - {fileID: 446252571}
   - {fileID: 1966677265}
   - {fileID: 45568912}
-  prepTime: 1
-  animationTime: 1
+  prepTime: 3
+  animationTime: 250
   isEasy: 1
 --- !u!82 &2064229520
 AudioSource:

@@ -43,7 +43,7 @@ public class NoteGenerator : MonoBehaviour
 
 	void afterPreSong() {
 		// Be sure to take into account the delay needed for animations
-		Invoke("beginAudio", animationTime);
+		Invoke("beginAudio", animationTime / 1000.0f);
 		// TODO: are all inital offsets at 0?
 		Invoke("deployBeat", notesToUse[0].offsetMS);
 	}

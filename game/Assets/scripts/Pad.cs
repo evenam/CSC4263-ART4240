@@ -10,7 +10,7 @@ public class Pad : MonoBehaviour {
 
 	public KeyCode triggerKey;
 
-	public const uint windowMS = 1000;
+	public const uint windowMS = 350;
 	public const uint alertMS = 100;
 
 	private float window, alert;
@@ -33,6 +33,11 @@ public class Pad : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (Input.GetKeyDown (triggerKey)) {
+			hitTheNote ();
+		}
+
 		SpriteRenderer spr = GetComponent<SpriteRenderer>();
 		float dt = Time.deltaTime;
 		switch (state) {
@@ -92,9 +97,21 @@ public class Pad : MonoBehaviour {
 
 	// Called when this pad should begin showing a beat
 	public void onBeat(NoteData beat) {
-		state = State.HIT;
-		alert = alertMS / 1000.0f;
+		state = State.READY;
 		window = windowMS / 1000.0f;
 		print("Pad " + beat.midiPadIndex + " got note at " + beat.offsetMS);
+	}
+
+	private void hitTheNote() {
+		// KICK IT!
+		if (state == State.READY) {
+			print ("HIT!");
+			state = State.HIT;
+			alert = alertMS / 1000.0f;
+		} else {
+			print ("MISS!");
+			state = State.MISS;
+			alert = alertMS / 1000.0f;
+		}
 	}
 }
