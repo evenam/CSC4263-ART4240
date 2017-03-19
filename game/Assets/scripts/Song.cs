@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NoteData : MonoBehaviour
+using System.Text;
+using System.IO;
+using System;
+
+public struct NoteData
 {
     public uint midiPadIndex;
     public uint stemIndex;
@@ -11,20 +15,17 @@ public class NoteData : MonoBehaviour
     public uint offsetMS;
 }
 
-public class SongData : MonoBehaviour
+public class SongData
 {
-    public const uint EASY_STEM_COUNT = 4;
-    public const uint ADV_STEM_COUNT = 9;
     public string title;
     public string artist;
     public uint BPM;
-    public string[] easyStems;
-    public string[] advStems;
+    public List<string> stems;
     public uint offsetMS;
     public uint notePrecision;  // bars advance 1/precision, hits on fraction/precision
     public uint tailMS;
-    public NoteData[] easyNoteData;
-    public NoteData[] advNoteData;
+    public List<NoteData> easyNoteData;
+    public List<NoteData> advNoteData;
     public uint easyHighScore;
     public uint advHighScore;
 
@@ -36,14 +37,167 @@ public class SongData : MonoBehaviour
     https://docs.unity3d.com/ScriptReference/Application-persistentDataPath.html
     http://answers.unity3d.com/questions/279750/loading-data-from-a-txt-file-c.html
     */
+
+    private string parseString(string input)
+    {
+        if (input[0] == '\"')
+        {
+            int index = 1;
+            string str = "";
+            while (input[index] != '\"')
+            {
+                if (input[index] == '\\')
+                {
+                    index++;
+                    if (input[index] == 'n')
+                    {
+                        str += '\n';
+                    }
+                    else if (input[index] == 't')
+                    {
+                        str += '\t';
+                    }
+                    else if (input[index] == '\'')
+                    {
+                        str += '\'';
+                    }
+                    else if (input[index] == '\"')
+                    {
+                        str += '\"';
+                    }
+                    index++;
+                }
+                else
+                {
+                    str += input[index++];
+                }
+            }
+            return str;
+        }
+        else
+        {
+            return "";
+        }
+    }
+
+    private NoteData parseNoteData(string args)
+    {
+        // woe is me without LINQ
+        string[] sArgs = args.Split(',');
+        NoteData data;
+        data.midiPadIndex = UInt32.Parse(sArgs[0]);
+        data.stemIndex = UInt32.Parse(sArgs[1]);
+        data.offsetMS = UInt32.Parse(sArgs[2]);
+        data.bar = UInt32.Parse(sArgs[3]);
+        data.fraction = UInt32.Parse(sArgs[4]);
+        return data;
+    }
+
+    private void parseStems(string args)
+    {
+        stems.Clear();
+        string[] sArgs = args.Split(',');
+        for (uint i = 0; i < sArgs.Length; i ++)
+        {
+            string stem = parseString(sArgs[i]);
+            stems.Add(stem);
+        }
+    }
+
+    public SongData(string filename)
+    {
+        stems = new List<string>();
+        easyNoteData = new List<NoteData>();
+        advNoteData = new List<NoteData>();
+        try
+        {
+            // file reading stuff
+            string line;
+            StreamReader theReader = new StreamReader(filename, Encoding.Default);
+            using (theReader)
+            {
+                do
+                {
+                    // each line...
+                    line = theReader.ReadLine();
+                    if (line == null) continue;
+                    line = line.Trim();
+                    if (line == "") continue;
+                    if (line.Substring(0, 2) == "//")
+                    {
+                        // comment line
+                        continue;
+                    }
+
+                    // determine line type
+                    string command = line.Split(':')[0].TrimEnd();
+                    string args = line.Split(':')[1].TrimStart();
+
+                    if (command == "Title")
+                    {
+                        title = parseString(args);
+                    }
+                    else if (command == "Artist")
+                    {
+                        artist = parseString(args);
+                    }
+                    else if (command == "BPM")
+                    {
+                        BPM = UInt32.Parse(args);
+                    }
+                    else if (command == "Offset")
+                    {
+                        offsetMS = UInt32.Parse(args);
+                    }
+                    else if (command == "Tail")
+                    {
+                        tailMS = UInt32.Parse(args);
+                    }
+                    else if (command == "Precision")
+                    {
+                        notePrecision = UInt32.Parse(args);
+                    }
+                    else if (command == "Offset")
+                    {
+                        offsetMS = UInt32.Parse(args);
+                    }
+                    else if (command == "Stems")
+                    {
+                        parseStems(args);
+                    }
+                    else if (command == "EasyNote")
+                    {
+                        NoteData data = parseNoteData(args);
+                        easyNoteData.Add(data);
+                    }
+                    else if (command == "AdvNote")
+                    {
+                        NoteData data = parseNoteData(args);
+                        advNoteData.Add(data);
+                    }
+                }
+                while (line != null);
+
+                // cleanup
+                theReader.Close();
+            }
+        }
+        catch (Exception e)
+        {
+            MonoBehaviour.print(e.StackTrace.ToString());
+        }
+
+        // TODO: persistant highscores using unity's build in score system
+    }
 }
 
 public class Song : MonoBehaviour
 {
-    SongData data;
-
-    public Song(string filename)
+    // used this to test. 
+    public void Start()
     {
-
+        print(Application.persistentDataPath);
+        SongData x = new SongData("<PATH_OMITTED>");
+        Debug.Break();
     }
 }
