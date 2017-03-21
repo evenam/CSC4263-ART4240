@@ -38,7 +38,29 @@ public class Pad : MonoBehaviour {
 			hitTheNote ();
 		}
 
-		SpriteRenderer spr = GetComponent<SpriteRenderer>();
+        int i = 0;
+        while (i < Input.touchCount)
+        {
+
+            if (Input.GetTouch(i).phase == TouchPhase.Began)
+            {
+                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.GetTouch(i).position), -Vector2.up);
+
+                if (hit.collider != null)
+                {
+
+                    if (hit.collider == GetComponent<CircleCollider2D>()) 
+                    {
+                        hitTheNote();
+                    }
+
+                }
+            }
+            ++i;
+        }
+
+
+        SpriteRenderer spr = GetComponent<SpriteRenderer>();
 		float dt = Time.deltaTime;
 		switch (state) {
 		case (State.OFF):
