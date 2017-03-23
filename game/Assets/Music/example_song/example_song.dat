@@ -1,7 +1,7 @@
 Title: "Example Song"
 Artist: "Everett"
 BPM: 130
-Stems: "example_track/track_pad.wav", "example_track/track_kick.wav", "example_track/track_snare.wav", "example_track/track_alt_drums.wav", "ADV1.WAV", "ADV2.WAV", "ADV3.WAV", "ADV4.WAV", "ADV5.WAV", "ADV6.WAV", "ADV7.WAV", "ADV8.WAV", "ADV9.WAV"
+Stems: "example_track/track_pad.wav", "example_track/track_kick.wav", "example_track/track_snare.wav", "example_track/track_rattle.wav", "ADV1.WAV", "ADV2.WAV", "ADV3.WAV", "ADV4.WAV", "ADV5.WAV", "ADV6.WAV", "ADV7.WAV", "ADV8.WAV", "ADV9.WAV"
 
 // song bars begin at 0
 Offset: 0
@@ -178,6 +178,16 @@ EasyNote: 2, 2, 0, 28, 4
 EasyNote: 2, 2, 0, 29, 4
 EasyNote: 2, 2, 0, 30, 4
 EasyNote: 2, 2, 0, 31, 4
+
+// Rattle
+EasyNote: 3, 3, 0, 16, 3
+EasyNote: 3, 3, 0, 17, 3
+EasyNote: 3, 3, 0, 18, 3
+EasyNote: 3, 3, 0, 19, 3
+EasyNote: 3, 3, 0, 20, 3
+EasyNote: 3, 3, 0, 21, 3
+EasyNote: 3, 3, 0, 22, 3
+EasyNote: 3, 3, 0, 23, 3
 
 // TBD Advanced Notes
 EasyHigh: 0
