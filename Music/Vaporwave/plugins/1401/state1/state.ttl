@@ -1,0 +1,30 @@
+@prefix atom: <http://lv2plug.in/ns/ext/atom#> .
+@prefix lv2: <http://lv2plug.in/ns/lv2core#> .
+@prefix pset: <http://lv2plug.in/ns/ext/presets#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix state: <http://lv2plug.in/ns/ext/state#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<>
+	a pset:Preset ;
+	lv2:appliesTo <http://calf.sourceforge.net/plugins/Fluidsynth> ;
+	state:state [
+		<urn:calf:soundfont> "" ;
+		<urn:calf:preset_key_set> "-1" ;
+		<urn:calf:preset_key_set2> "-1" ;
+		<urn:calf:preset_key_set3> "-1" ;
+		<urn:calf:preset_key_set4> "-1" ;
+		<urn:calf:preset_key_set5> "-1" ;
+		<urn:calf:preset_key_set6> "-1" ;
+		<urn:calf:preset_key_set7> "-1" ;
+		<urn:calf:preset_key_set8> "-1" ;
+		<urn:calf:preset_key_set9> "-1" ;
+		<urn:calf:preset_key_set10> "-1" ;
+		<urn:calf:preset_key_set11> "-1" ;
+		<urn:calf:preset_key_set12> "-1" ;
+		<urn:calf:preset_key_set13> "-1" ;
+		<urn:calf:preset_key_set14> "-1" ;
+		<urn:calf:preset_key_set15> "-1" ;
+		<urn:calf:preset_key_set16> "-1"
+	] .
