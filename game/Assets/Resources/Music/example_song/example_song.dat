@@ -1,7 +1,7 @@
 Title: "Example Song"
 Artist: "Everett"
 BPM: 130
-Stems: "example_track/track_pad.wav", "example_track/track_kick.wav", "example_track/track_snare.wav", "example_track/track_rattle.wav", "ADV1.WAV", "ADV2.WAV", "ADV3.WAV", "ADV4.WAV", "ADV5.WAV", "ADV6.WAV", "ADV7.WAV", "ADV8.WAV", "ADV9.WAV"
+Stems: "example_song/track_pad", "example_song/track_kick", "example_song/track_snare", "example_song/track_rattle"
 
 // song bars begin at 0
 Offset: 0

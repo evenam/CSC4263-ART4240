@@ -25,9 +25,18 @@ public class NoteGenerator : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		// Load the song
-		print(Application.dataPath);
-		song = new SongData(Application.dataPath+"/Music/example_song/example_song.dat");
+		// Load the song data
+		song = new SongData(Application.dataPath+"/Resources/Music/example_song/example_song.dat");
+
+		// stems: example_track/track_pad.wav
+
+		// Load audio sources for every stem
+		foreach (string stem in song.stems)
+		{
+			Debug.Log(stem);
+			AudioSource src = gameObject.AddComponent<AudioSource>();
+			src.clip = Resources.Load("Music/"+stem) as AudioClip;
+		}
 
 		if (isEasy)
 			notesToUse = song.easyNoteData;
@@ -48,9 +57,12 @@ public class NoteGenerator : MonoBehaviour
 		Invoke("deployBeat", notesToUse[0].offsetMS);
 	}
 
-	// TODO: use stems instead of full track
-	void beginAudio() {
-		Camera.main.GetComponent<AudioSource>().Play();
+	void beginAudio()
+	{
+		foreach (AudioSource src in gameObject.GetComponents<AudioSource>())
+		{
+			src.Play();
+		}
 	}
 
 	// TODO: handle the obviously-omitted end of song case

@@ -103,7 +103,7 @@ public class SongData
         string[] sArgs = args.Split(',');
         for (uint i = 0; i < sArgs.Length; i ++)
         {
-            string stem = parseString(sArgs[i]);
+			string stem = parseString(sArgs[i].Trim());
             stems.Add(stem);
         }
     }
