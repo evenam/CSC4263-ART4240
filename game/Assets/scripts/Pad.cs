@@ -15,6 +15,8 @@ public class Pad : MonoBehaviour {
 
 	private float window, alert;
 
+	private NoteData currentBeat;
+
 	enum State {
 		OFF,
 		READY,
@@ -114,11 +116,14 @@ public class Pad : MonoBehaviour {
 		if (alert <= 0) {
 			state = State.OFF;
 		}
-
+		Camera.main.GetComponents<AudioSource>()[currentBeat.stemIndex].volume = 0f;
+		// TODO: play a miss sound effect
+		Invoke("resetStems", ((float)alertMS) / 1000f);
 	}
 
 	// Called when this pad should begin showing a beat
 	public void onBeat(NoteData beat) {
+		currentBeat = beat;
 		state = State.READY;
 		window = windowMS / 1000.0f;
 		print("Pad " + beat.midiPadIndex + " got note at " + beat.offsetMS);
@@ -135,5 +140,11 @@ public class Pad : MonoBehaviour {
 			state = State.MISS;
 			alert = alertMS / 1000.0f;
 		}
+	}
+
+	void resetStems()
+	{
+		foreach (AudioSource src in Camera.main.GetComponents<AudioSource>())
+			src.volume = 1.0f;
 	}
 }
