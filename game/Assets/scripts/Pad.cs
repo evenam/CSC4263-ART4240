@@ -15,6 +15,9 @@ public class Pad : MonoBehaviour {
 
 	public int wrongMS = 100;
 
+	// Reference to indicator that will be instantiated and destroyed
+	public GameObject indicatorRef;
+
 
 	private float window, alert;
 
@@ -132,6 +135,11 @@ public class Pad : MonoBehaviour {
 		state = State.READY;
 		window = windowMS / 1000.0f;
 		print("Pad " + beat.midiPadIndex + " got note at " + beat.offsetMS);
+		// Spawn an indicator. It will destroy itself
+		GameObject instance = Instantiate(indicatorRef, this.transform.position, this.transform.rotation);
+		// move the instance above this game object
+		// Unity is stupid.
+		instance.transform.position = new Vector3(instance.transform.position.x, instance.transform.position.y, -1.0f);
 	}
 
 	private void hitTheNote() {
