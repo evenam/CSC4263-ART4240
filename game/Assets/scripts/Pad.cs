@@ -13,6 +13,9 @@ public class Pad : MonoBehaviour {
 	public const uint windowMS = 250;
 	public const uint alertMS = 100;
 
+	public int wrongMS = 100;
+
+
 	private float window, alert;
 
 	private NoteData currentBeat;
@@ -107,6 +110,10 @@ public class Pad : MonoBehaviour {
 		if (alert <= 0) {
 			state = State.OFF;
 		}
+		// Only reset stem when user hits a note
+		// TODO: play a miss sound effect
+		// TODO: reset only the missed stem maybe?
+		Invoke("resetStems", ((float)wrongMS) / 1000f);
 	}
 
 	private void handleMiss(float dt) {
@@ -117,8 +124,6 @@ public class Pad : MonoBehaviour {
 			state = State.OFF;
 		}
 		Camera.main.GetComponents<AudioSource>()[currentBeat.stemIndex].volume = 0f;
-		// TODO: play a miss sound effect
-		Invoke("resetStems", ((float)alertMS) / 1000f);
 	}
 
 	// Called when this pad should begin showing a beat
