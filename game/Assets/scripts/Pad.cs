@@ -23,6 +23,8 @@ public class Pad : MonoBehaviour {
 
 	private NoteData currentBeat;
 
+    public ScoreController scoreCont;
+
 	enum State {
 		OFF,
 		READY,
@@ -37,7 +39,10 @@ public class Pad : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		state = State.OFF;
-	}
+
+        GameObject scoreControllerObject = GameObject.FindWithTag("scoreController");
+        scoreCont = scoreControllerObject.GetComponent<ScoreController>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -112,7 +117,9 @@ public class Pad : MonoBehaviour {
 		alert -= dt;
 		if (alert <= 0) {
 			state = State.OFF;
-		}
+
+            scoreCont.incScore();   //increases the score on successful hit
+        }
 		// Only reset stem when user hits a note
 		// TODO: play a miss sound effect
 		// TODO: reset only the missed stem maybe?
@@ -125,6 +132,8 @@ public class Pad : MonoBehaviour {
 		alert -= dt;
 		if (alert <= 0) {
 			state = State.OFF;
+
+            scoreCont.multiplyerReset();    //resets the multiplyer to x1
 		}
 		Camera.main.GetComponents<AudioSource>()[currentBeat.stemIndex].volume = 0f;
 	}

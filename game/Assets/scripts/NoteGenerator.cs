@@ -25,6 +25,10 @@ public class NoteGenerator : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
+        // The stems don't start playing instantly, so I made it so it waits 5 
+        // seconds before checking if each of the audio sources are done playing.
+        StartCoroutine(waitForSongCoroutine());
+
 		// Load the song data
 		song = new SongData(Application.dataPath+"/Resources/Music/example_song/example_song.dat");
 
@@ -82,4 +86,43 @@ public class NoteGenerator : MonoBehaviour
 		Invoke("deployBeat", (float)(notesToUse[index].offsetMS - note.offsetMS) / 1000F);
 	}
 
+    int stemsDonePlaying = 0;
+    bool songsArePlaying = false;
+    public IEnumerator waitForSongCoroutine()
+    {
+        yield return new WaitForSeconds(5);
+        songsArePlaying = true;
+    }
+
+    private void Update()
+    {
+        if(songsArePlaying)
+        {
+            CheckStems();
+        }
+        if(stemsDonePlaying != 0)
+        {
+            print("song over");
+            GameObject songOverParent = GameObject.Find("Canvas");
+            GameObject songOver = songOverParent.transform.FindChild("FinalScoreGroup").gameObject;
+            GameObject gameplay = songOverParent.transform.FindChild("GameplayGroup").gameObject;
+            gameplay.SetActive(false);
+            songOver.SetActive(true);
+        }
+    }
+
+    
+    void CheckStems()
+    {
+        foreach (AudioSource src in gameObject.GetComponents<AudioSource>())
+        {
+            if (!src.isPlaying)
+            {
+                stemsDonePlaying++;
+            }
+        }
+        // Added this so the counter is reset if not all of the stems are finished playing.
+        if (stemsDonePlaying < 4)
+            stemsDonePlaying = 0;
+    }
 }
