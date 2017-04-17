@@ -138,17 +138,24 @@ public class Pad : MonoBehaviour {
 		Camera.main.GetComponents<AudioSource>()[currentBeat.stemIndex].volume = 0f;
 	}
 
-	// Called when this pad should begin showing a beat
-	public void onBeat(NoteData beat) {
-		currentBeat = beat;
-		state = State.READY;
-		window = windowMS / 1000.0f;
-		print("Pad " + beat.midiPadIndex + " got note at " + beat.offsetMS);
+	// Called when this pad should pre-animate a beat
+	public void onReady(NoteData beat) {
 		// Spawn an indicator. It will destroy itself
 		GameObject instance = Instantiate(indicatorRef, this.transform.position, this.transform.rotation);
 		// move the instance above this game object
 		// Unity is stupid.
 		instance.transform.position = new Vector3(instance.transform.position.x, instance.transform.position.y, -1.0f);
+
+		StartCoroutine(this.onBeat (beat));
+	}
+
+	// Called when this pad should perform a beat
+	public IEnumerator onBeat(NoteData beat) {
+		yield return new WaitForSeconds(NoteGenerator.animationTime);
+		currentBeat = beat;
+		state = State.READY;
+		window = windowMS / 1000.0f;
+		print("Pad " + beat.midiPadIndex + " got note at " + beat.offsetMS);
 	}
 
 	private void hitTheNote() {

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /**
  * Consumes beats and notifies pads to animate themselves
@@ -12,10 +13,14 @@ public class NoteGenerator : MonoBehaviour
 	// The time of the "GET READY" animation, should there be one.
 	public float prepTime = 3;
 	// The total time from the beginning of the pad animation to the onset in the song
-	public float animationTime = 0;
+	public static float animationTime = 0.95f;
 
 	// TODO: make this work with difficulty selection.
 	public bool isEasy = true;
+
+	// countdown box
+	public Text uiTextCountdown;
+	private int countdownSecondsRemaining;
 
 	int index = 0;
 
@@ -52,11 +57,14 @@ public class NoteGenerator : MonoBehaviour
 
 		// Does unity have a better way to "sleep"?
 		Invoke("afterPreSong", prepTime);
+
+		countdownSecondsRemaining = 3;
+		Countdown ();
 	}
 
 	void afterPreSong() {
 		// Be sure to take into account the delay needed for animations
-		Invoke("beginAudio", animationTime / 1000.0f);
+		Invoke("beginAudio", animationTime);
 		// TODO: are all inital offsets at 0?
 		Invoke("deployBeat", notesToUse[0].offsetMS);
 	}
@@ -72,7 +80,7 @@ public class NoteGenerator : MonoBehaviour
 	// TODO: handle the obviously-omitted end of song case
 	void deployBeat() {
 		NoteData note = notesToUse[index];
-		pads[note.midiPadIndex].GetComponent<Pad>().onBeat(note);
+		pads[note.midiPadIndex].GetComponent<Pad>().onReady(note);
 		index++;
 		// if this note is a chord
 		while (notesToUse[index].offsetMS == note.offsetMS)
@@ -125,4 +133,20 @@ public class NoteGenerator : MonoBehaviour
         if (stemsDonePlaying < 4)
             stemsDonePlaying = 0;
     }
+
+
+	// countdown function
+	void Countdown() {
+		if (countdownSecondsRemaining > 0) {
+			uiTextCountdown.text = countdownSecondsRemaining.ToString ();
+			countdownSecondsRemaining--;
+			Invoke ("Countdown", 1f);
+		} else if (countdownSecondsRemaining == 0) {
+			uiTextCountdown.text = "GO!";
+			countdownSecondsRemaining--;
+			Invoke ("Countdown", 1f);
+		} else {
+			uiTextCountdown.text = "";
+		}
+	}
 }
