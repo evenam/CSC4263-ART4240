@@ -13,7 +13,7 @@ public class NoteGenerator : MonoBehaviour
 	// The time of the "GET READY" animation, should there be one.
 	public float prepTime = 3;
 	// The total time from the beginning of the pad animation to the onset in the song
-	public static float animationTime = 0.95f;
+	public static float animationTime = 1.2f;
 
 	// TODO: make this work with difficulty selection.
 	public bool isEasy = true;

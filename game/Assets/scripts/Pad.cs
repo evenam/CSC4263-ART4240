@@ -144,7 +144,7 @@ public class Pad : MonoBehaviour {
 		GameObject instance = Instantiate(indicatorRef, this.transform.position, this.transform.rotation);
 		// move the instance above this game object
 		// Unity is stupid.
-		instance.transform.position = new Vector3(instance.transform.position.x, instance.transform.position.y, -1.0f);
+		instance.transform.position = new Vector3(instance.transform.position.x - 0.032236f, instance.transform.position.y - 0.026407f, 2.0f);
 
 		StartCoroutine(this.onBeat (beat));
 	}
