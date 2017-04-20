@@ -1,7 +1,7 @@
 Title: "Bad Song"
 Artist: "Matthew"
 BPM: 90
-Stems: "example_song/drums", "example_song/pad", "example_song/sax"
+Stems: "BadSong/drums", "BadSong/pad", "BadSong/sax"
 // song bars begin at 0
 Offset: 0
 
