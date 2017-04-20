@@ -122,8 +122,8 @@ public class Pad : MonoBehaviour {
         }
 		// Only reset stem when user hits a note
 		// TODO: play a miss sound effect
-		// TODO: reset only the missed stem maybe?
-		Invoke("resetStems", ((float)wrongMS) / 1000f);
+		resetStem(currentBeat.stemIndex);
+		// Invoke("resetStems", ((float)wrongMS) / 1000f);
 	}
 
 	private void handleMiss(float dt) {
@@ -149,12 +149,11 @@ public class Pad : MonoBehaviour {
 		// Unity is stupid.
 		instance.transform.position = new Vector3(instance.transform.position.x, instance.transform.position.y, 55.0f);
 		instance.transform.localScale = new Vector3(scale, scale, 1);
-		StartCoroutine(this.onBeat (beat));
+		this.onBeat(beat);
 	}
 
 	// Called when this pad should perform a beat
-	public IEnumerator onBeat(NoteData beat) {
-		yield return new WaitForSeconds(NoteGenerator.animationTime);
+	public void onBeat(NoteData beat) {
 		currentBeat = beat;
 		state = State.READY;
 		window = windowMS / 1000.0f;
@@ -174,9 +173,8 @@ public class Pad : MonoBehaviour {
 		}
 	}
 
-	void resetStems()
+	void resetStem(int stemIndex)
 	{
-		foreach (AudioSource src in Camera.main.GetComponents<AudioSource>())
-			src.volume = 1.0f;
+		Camera.main.GetComponents<AudioSource>()[stemIndex].volume = 1.0f;
 	}
 }
