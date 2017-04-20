@@ -183,29 +183,29 @@ EasyNote: 2, 2, 0, 6, 10
 EasyNote: 2, 2, 0, 6, 12
 EasyNote: 2, 2, 0, 6, 14
 
-EasyNote: 2, 2, 0, 6, 0
-EasyNote: 2, 2, 0, 6, 4
-EasyNote: 2, 2, 0, 6, 6
-EasyNote: 2, 2, 0, 6, 10
-EasyNote: 2, 2, 0, 6, 12
-
-EasyNote: 2, 2, 0, 9, 0
-EasyNote: 2, 2, 0, 9, 10
-EasyNote: 2, 2, 0, 9, 12
-EasyNote: 2, 2, 0, 9, 14
+EasyNote: 2, 2, 0, 7, 0
+EasyNote: 2, 2, 0, 7, 4
+EasyNote: 2, 2, 0, 7, 6
+EasyNote: 2, 2, 0, 7, 10
+EasyNote: 2, 2, 0, 7, 12
 
 EasyNote: 2, 2, 0, 10, 0
-EasyNote: 2, 2, 0, 10, 2
-EasyNote: 2, 2, 0, 10, 6
 EasyNote: 2, 2, 0, 10, 10
+EasyNote: 2, 2, 0, 10, 12
+EasyNote: 2, 2, 0, 10, 14
 
 EasyNote: 2, 2, 0, 11, 0
 EasyNote: 2, 2, 0, 11, 2
 EasyNote: 2, 2, 0, 11, 6
 EasyNote: 2, 2, 0, 11, 10
-EasyNote: 2, 2, 0, 11, 12
 
 EasyNote: 2, 2, 0, 12, 0
+EasyNote: 2, 2, 0, 12, 2
+EasyNote: 2, 2, 0, 12, 6
+EasyNote: 2, 2, 0, 12, 10
+EasyNote: 2, 2, 0, 12, 12
+
+EasyNote: 2, 2, 0, 13, 0
 
 // TBD Advanced Notes
 EasyHigh: 0
