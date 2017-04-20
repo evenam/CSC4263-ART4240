@@ -135,7 +135,10 @@ public class Pad : MonoBehaviour {
 
             scoreCont.MultiplyerReset();    //resets the multiplyer to x1
 		}
-		Camera.main.GetComponents<AudioSource>()[currentBeat.stemIndex].volume = 0f;
+		if (!Camera.main.GetComponent<NoteGenerator>().godMode)
+		{
+			Camera.main.GetComponents<AudioSource>()[currentBeat.stemIndex].volume = 0f;
+		}
 	}
 
 	// Called when this pad should pre-animate a beat

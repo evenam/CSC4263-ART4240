@@ -18,6 +18,9 @@ public class NoteGenerator : MonoBehaviour
 	// TODO: make this work with difficulty selection.
 	public bool isEasy = true;
 
+	// True if missing a note does nothing
+	public bool godMode = false;
+
 	// countdown box
 	public Text uiTextCountdown;
 	private int countdownSecondsRemaining;
