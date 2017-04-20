@@ -166,6 +166,20 @@ Prefab:
       propertyPath: triggerKey
       value: 97
       objectReference: {fileID: 0}
+    - target: {fileID: 212000384095566470, guid: 219a700610e334460bab8f7d1d939f84,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2a6d290b6575a7b4ea0f12691bcbc6e9,
+        type: 3}
+    - target: {fileID: 4238458337627212, guid: 219a700610e334460bab8f7d1d939f84, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238458337627212, guid: 219a700610e334460bab8f7d1d939f84, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.14
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 219a700610e334460bab8f7d1d939f84, type: 2}
   m_IsPrefabParent: 0
@@ -403,6 +417,20 @@ Prefab:
       propertyPath: triggerKey
       value: 119
       objectReference: {fileID: 0}
+    - target: {fileID: 212000384095566470, guid: 219a700610e334460bab8f7d1d939f84,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2a6d290b6575a7b4ea0f12691bcbc6e9,
+        type: 3}
+    - target: {fileID: 4238458337627212, guid: 219a700610e334460bab8f7d1d939f84, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238458337627212, guid: 219a700610e334460bab8f7d1d939f84, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.14
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 219a700610e334460bab8f7d1d939f84, type: 2}
   m_IsPrefabParent: 0
@@ -521,7 +549,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf5ab672cf8c3194f8e2cc5f114a90a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
 --- !u!4 &606552226
 Transform:
   m_ObjectHideFlags: 0
@@ -543,9 +570,10 @@ AudioSource:
   m_GameObject: {fileID: 606552224}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 8f5f2a91e4ec4c945ba86fc0cc39bf39,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 3010405ec5a764e6484e22a2822f0e0f, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -602,7 +630,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -737,6 +765,20 @@ Prefab:
       propertyPath: scoreCont
       value: 
       objectReference: {fileID: 496016194}
+    - target: {fileID: 212000384095566470, guid: 219a700610e334460bab8f7d1d939f84,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2a6d290b6575a7b4ea0f12691bcbc6e9,
+        type: 3}
+    - target: {fileID: 4238458337627212, guid: 219a700610e334460bab8f7d1d939f84, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238458337627212, guid: 219a700610e334460bab8f7d1d939f84, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.14
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 219a700610e334460bab8f7d1d939f84, type: 2}
   m_IsPrefabParent: 0
@@ -1709,6 +1751,20 @@ Prefab:
       propertyPath: triggerKey
       value: 115
       objectReference: {fileID: 0}
+    - target: {fileID: 212000384095566470, guid: 219a700610e334460bab8f7d1d939f84,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2a6d290b6575a7b4ea0f12691bcbc6e9,
+        type: 3}
+    - target: {fileID: 4238458337627212, guid: 219a700610e334460bab8f7d1d939f84, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238458337627212, guid: 219a700610e334460bab8f7d1d939f84, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.14
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 219a700610e334460bab8f7d1d939f84, type: 2}
   m_IsPrefabParent: 0
@@ -1832,6 +1888,7 @@ MonoBehaviour:
   prepTime: 3
   isEasy: 1
   uiTextCountdown: {fileID: 952275311}
+  highScoreController: {fileID: 0}
 --- !u!114 &2064229517
 MonoBehaviour:
   m_ObjectHideFlags: 0

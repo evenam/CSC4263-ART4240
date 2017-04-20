@@ -27,6 +27,8 @@ public class NoteGenerator : MonoBehaviour
 	SongData song;
 	List<NoteData> notesToUse;
 
+    public ScoreController highScoreController;
+
 	// Use this for initialization
 	void Start()
 	{
@@ -51,8 +53,8 @@ public class NoteGenerator : MonoBehaviour
 			notesToUse = song.easyNoteData;
 		else
 			notesToUse = song.advNoteData;
-			
 
+        highScoreController = new ScoreController();
 		// TODO: Give the user some indication a song is about to start
 
 		// Does unity have a better way to "sleep"?
@@ -110,6 +112,7 @@ public class NoteGenerator : MonoBehaviour
         }
         if(stemsDonePlaying != 0)
         {
+            highScoreController.SetHighScore();
             print("song over");
             GameObject songOverParent = GameObject.Find("Canvas");
             GameObject songOver = songOverParent.transform.FindChild("FinalScoreGroup").gameObject;

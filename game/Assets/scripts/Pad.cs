@@ -118,7 +118,7 @@ public class Pad : MonoBehaviour {
 		if (alert <= 0) {
 			state = State.OFF;
 
-            scoreCont.incScore();   //increases the score on successful hit
+            scoreCont.IncScore();   //increases the score on successful hit
         }
 		// Only reset stem when user hits a note
 		// TODO: play a miss sound effect
@@ -133,7 +133,7 @@ public class Pad : MonoBehaviour {
 		if (alert <= 0) {
 			state = State.OFF;
 
-            scoreCont.multiplyerReset();    //resets the multiplyer to x1
+            scoreCont.MultiplyerReset();    //resets the multiplyer to x1
 		}
 		Camera.main.GetComponents<AudioSource>()[currentBeat.stemIndex].volume = 0f;
 	}
