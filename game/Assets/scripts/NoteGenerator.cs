@@ -28,6 +28,7 @@ public class NoteGenerator : MonoBehaviour
 	List<NoteData> notesToUse;
 
     public ScoreController highScoreController;
+    public SpectrumToVisual spectrumVisual;
 
 	// Use this for initialization
 	void Start()
@@ -54,7 +55,9 @@ public class NoteGenerator : MonoBehaviour
 		else
 			notesToUse = song.advNoteData;
 
+
         highScoreController = new ScoreController();
+
 		// TODO: Give the user some indication a song is about to start
 
 		// Does unity have a better way to "sleep"?
@@ -117,6 +120,7 @@ public class NoteGenerator : MonoBehaviour
             GameObject songOverParent = GameObject.Find("Canvas");
             GameObject songOver = songOverParent.transform.FindChild("FinalScoreGroup").gameObject;
             GameObject gameplay = songOverParent.transform.FindChild("GameplayGroup").gameObject;
+            spectrumVisual.DestroySpectrumTriangles();
             gameplay.SetActive(false);
             songOver.SetActive(true);
         }

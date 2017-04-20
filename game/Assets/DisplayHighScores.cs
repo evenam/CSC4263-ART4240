@@ -18,6 +18,8 @@ public class DisplayHighScores : MonoBehaviour {
         highScoreText.text = ("<size=200><color=#ffa500ff>Track 1</color></size>\n<size=100>" + EasyHighScores[0].ToString("D8") + "\t" + AdvHighScores[0].ToString("D8") + "</size>\n\n\n" +
             "<size=200><color=#ff0000ff>Track 2</color></size>\n<size=100>" + EasyHighScores[1].ToString("D8") + "\t" + AdvHighScores[1].ToString("D8") + "</size>\n\n\n" +
             "<size=200><color=#00ff00ff>Track 3</color></size>\n<size=100>" + EasyHighScores[2].ToString("D8") + "\t" + AdvHighScores[2].ToString("D8") + "</size>");
+
+        print(EasyHighScores[0]);
     }
 	
 	// Update is called once per frame

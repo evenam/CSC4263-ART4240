@@ -6,12 +6,15 @@ using UnityEngine.UI;
 public class ScoreController : MonoBehaviour {
 
     public Text scoreText, multiplyerText, finalScoreText;
-    private double score;
+    private static double score;
     private double multiplyer;
 
-    int highscore;
-    string highscoreKey;
+    //
+    int count;
+    //
 
+    int highscore;
+    static string highscoreKey;
 	// Use this for initialization
 	void Start () {
         // Will need to differentiate song# + difficulty for each high score, so highscore key will look like 'e_HIGH_SCORE_1' depending on difficulty and song#.
@@ -23,11 +26,15 @@ public class ScoreController : MonoBehaviour {
         score = 0;
         multiplyer = 1;
         UpdateScore();
+
+        //
+        count = 0;
+        //
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+        count++;
 	}
 
     public void IncScore()
@@ -52,10 +59,12 @@ public class ScoreController : MonoBehaviour {
 
     public void SetHighScore()
     {
-        
+
         if (score > highscore)
         {
+            print("High score being set: score=" + score + ", highscore=" + highscore);
             PlayerPrefs.SetInt(highscoreKey, (int)score);
         }
+        print(PlayerPrefs.GetInt(highscoreKey));
     }
 }
