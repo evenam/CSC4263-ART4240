@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class IndicatorBehavior : MonoBehaviour {
 
-	public float animationTime = 1.0f;
+	private float animationTime = 1.0f / NoteGenerator.animationTime;
 	public float time = 0.0f;
 
 	void Start() {
-		gameObject.GetComponent<Animator> ().speed = 1.03f / animationTime;
-		Destroy (gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length); 
+		gameObject.GetComponent<Animator> ().speed = animationTime;
+		Destroy (gameObject, animationTime); 
 	}
 
 	void Update() {

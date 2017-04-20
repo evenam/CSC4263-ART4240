@@ -13,7 +13,7 @@ public class NoteGenerator : MonoBehaviour
 	// The time of the "GET READY" animation, should there be one.
 	public float prepTime = 3;
 	// The total time from the beginning of the pad animation to the onset in the song
-	public static float animationTime = 1.2f;
+	public static float animationTime = 0.4f;
 
 	// TODO: make this work with difficulty selection.
 	public bool isEasy = true;
@@ -85,7 +85,7 @@ public class NoteGenerator : MonoBehaviour
 	// TODO: handle the obviously-omitted end of song case
 	void deployBeat() {
 		NoteData note = notesToUse[index];
-		pads[note.midiPadIndex].GetComponent<Pad>().onReady(note);
+		pads[note.midiPadIndex].GetComponent<Pad>().onReady(note, isEasy ? 0.65f : 0.15f);
 		index++;
 		// if this note is a chord
 		while (notesToUse[index].offsetMS == note.offsetMS)
