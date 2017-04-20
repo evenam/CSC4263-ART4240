@@ -109,12 +109,12 @@ public class NoteGenerator : MonoBehaviour
 
 	void deployBeat() {
 		NoteData note = notesToUse[index];
-		pads[note.midiPadIndex].GetComponent<Pad>().onReady(note, isEasy ? 0.65f : 0.15f);
+		pads[note.midiPadIndex].GetComponent<Pad>().onBeat(note, isEasy ? 0.65f : 0.15f);
 		index++;
 		// if this note is a chord
 		while (notesToUse[index].offsetMS == note.offsetMS)
 		{
-			pads[notesToUse[index].midiPadIndex].GetComponent<Pad>().onBeat(notesToUse[index]);
+			pads[notesToUse[index].midiPadIndex].GetComponent<Pad>().onBeat(notesToUse[index], isEasy ? 0.65f : 0.15f);
 			index++;
 		}
 

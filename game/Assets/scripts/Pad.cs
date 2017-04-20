@@ -10,10 +10,11 @@ public class Pad : MonoBehaviour {
 
 	public KeyCode triggerKey;
 
+	// Time user has to hit a note. (Length of acceptable time)
+	// Time starts from when this pad receives the cue to begin the ring animaton.
 	public const uint windowMS = 250;
+	// Time to flash red for a wrong note or green for a correct note.
 	public const uint alertMS = 100;
-
-	public int wrongMS = 100;
 
 	// Reference to indicator that will be instantiated and destroyed
 	public GameObject indicatorRef;
@@ -123,7 +124,6 @@ public class Pad : MonoBehaviour {
 		// Only reset stem when user hits a note
 		// TODO: play a miss sound effect
 		resetStem(currentBeat.stemIndex);
-		// Invoke("resetStems", ((float)wrongMS) / 1000f);
 	}
 
 	private void handleMiss(float dt) {
@@ -142,18 +142,18 @@ public class Pad : MonoBehaviour {
 	}
 
 	// Called when this pad should pre-animate a beat
-	public void onReady(NoteData beat, float scale) {
+	public void onBeat(NoteData beat, float scale) {
 		// Spawn an indicator. It will destroy itself
 		GameObject instance = Instantiate(indicatorRef, this.transform.position, this.transform.rotation);
 		// move the instance above this game object
 		// Unity is stupid.
 		instance.transform.position = new Vector3(instance.transform.position.x, instance.transform.position.y, 55.0f);
 		instance.transform.localScale = new Vector3(scale, scale, 1);
-		this.onBeat(beat);
+		this.onBeatNoAnimate(beat);
 	}
 
-	// Called when this pad should perform a beat
-	public void onBeat(NoteData beat) {
+	// Called when this pad should perform a beat. Skips the indicator animation
+	public void onBeatNoAnimate(NoteData beat) {
 		currentBeat = beat;
 		state = State.READY;
 		window = windowMS / 1000.0f;
