@@ -17,7 +17,7 @@ public class SpectrumToVisual : MonoBehaviour {
             instanceSampleTriangle.transform.parent = this.transform;
             instanceSampleTriangle.name = "SampleTriangle" + i;
             this.transform.eulerAngles = new Vector3(0, -0.703125f * i, 0);
-            instanceSampleTriangle.transform.position = Vector3.forward * 10;
+            instanceSampleTriangle.transform.position += Vector3.forward * 10;
             sampleTriangle[i] = instanceSampleTriangle;
         }
     }
@@ -29,7 +29,7 @@ public class SpectrumToVisual : MonoBehaviour {
         {
             if (sampleTriangle != null)
             {
-                sampleTriangle[i].transform.localScale = new Vector3(1, (GetAudioSpectrum.samples[i] * maxScale) + 2, 10);
+                sampleTriangle[i].transform.localScale = new Vector3(1.0f, (GetAudioSpectrum.samples[i] * maxScale) + 2, 1);
             }
         }
     }
