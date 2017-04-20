@@ -173,7 +173,7 @@ public class Pad : MonoBehaviour {
 		}
 	}
 
-	void resetStem(int stemIndex)
+	void resetStem(uint stemIndex)
 	{
 		Camera.main.GetComponents<AudioSource>()[stemIndex].volume = 1.0f;
 	}
