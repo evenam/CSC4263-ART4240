@@ -41,12 +41,21 @@ public class NoteGenerator : MonoBehaviour
         StartCoroutine(waitForSongCoroutine());
 
 		// Load the song data
-		song = new SongData(Application.dataPath+"/Resources/Music/example_song/example_song.dat");
+		// song = new SongData(Application.dataPath+"/Resources/Music/example_song/example_song.dat");
 
-		// stems: example_track/track_pad.wav
+        // Now gets which song to play from which song is selected in song select.
+        // Will play last song selected when the game is running, so to test different songs have to start from song select.
+        song = new SongData(Application.dataPath + PlayerPrefs.GetString("songPath"));
+        // Gets song difficulty the same way, but can save bool with PlayerPrefs so used 1 = easy, 0 = hard.
+        if (PlayerPrefs.GetInt("songDifficulty") == 1)
+            isEasy = true;
+        else
+            isEasy = false;
 
-		// Load audio sources for every stem
-		foreach (string stem in song.stems)
+        // stems: example_track/track_pad.wav
+
+        // Load audio sources for every stem
+        foreach (string stem in song.stems)
 		{
 			Debug.Log(stem);
 			AudioSource src = gameObject.AddComponent<AudioSource>();

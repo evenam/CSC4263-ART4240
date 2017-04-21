@@ -5,12 +5,23 @@ using UnityEngine;
 public class GetAudioSpectrum : MonoBehaviour {
 
     AudioSource audioSource;
+    public AudioClip clip1, clip2, clip3;
     public static float[] samples = new float[512];
 
     // Use this for initialization
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+
+        if (PlayerPrefs.GetString("songPath").Contains("example_song"))
+            audioSource.clip = clip1;
+        else if (PlayerPrefs.GetString("songPath").Contains("badsong"))
+            audioSource.clip = clip2;
+        else if (PlayerPrefs.GetString("songPath").Contains("vaporwave"))
+            audioSource.clip = clip3;
+        else
+            print("No song selected.");
+
         audioSource.PlayDelayed(3);
     }
 
