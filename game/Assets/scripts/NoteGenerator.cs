@@ -33,6 +33,9 @@ public class NoteGenerator : MonoBehaviour
     public ScoreController highScoreController;
     public SpectrumToVisual spectrumVisual;
 
+    // counts number of stems so song ends correctly for both easy and adv
+    int stemCount = 0;
+
 	// Use this for initialization
 	void Start()
 	{
@@ -60,6 +63,8 @@ public class NoteGenerator : MonoBehaviour
 			Debug.Log(stem);
 			AudioSource src = gameObject.AddComponent<AudioSource>();
 			src.clip = Resources.Load("Music/"+stem) as AudioClip;
+
+            stemCount++;
 		}
 
 		if (isEasy)
@@ -151,7 +156,7 @@ public class NoteGenerator : MonoBehaviour
             }
         }
         // Added this so the counter is reset if not all of the stems are finished playing.
-        if (stemsDonePlaying < 4)
+        if (stemsDonePlaying < stemCount)
             stemsDonePlaying = 0;
     }
 
