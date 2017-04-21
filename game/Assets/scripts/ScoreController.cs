@@ -15,9 +15,18 @@ public class ScoreController : MonoBehaviour
 
     void Start()
     {
-        // Will need to differentiate song# + difficulty for each high score, so highscore key will look like 'e_HIGH_SCORE_1' depending on difficulty and song#.
-        // This is just temporary
-        highscoreKey = "e_HIGH_SCORE_1";
+        if (PlayerPrefs.GetInt("songDifficulty") == 1)
+            highscoreKey = "e_HIGH_SCORE_";
+        else
+            highscoreKey = "a_HIGH_SCORE_";
+
+        if (PlayerPrefs.GetString("songPath").Contains("example_song"))
+            highscoreKey += "1";
+        else if (PlayerPrefs.GetString("songPath").Contains("badsong"))
+            highscoreKey += "2";
+        else if (PlayerPrefs.GetString("songPath").Contains("vaporwave"))
+            highscoreKey += "3";
+
         // highscoreKey = (SongSelect.difficulty + "_HIGH_SCORE_" + SongSelect.songNumber)
         highscore = PlayerPrefs.GetInt(highscoreKey);
 

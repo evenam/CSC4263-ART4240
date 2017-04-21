@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LoadSongOnClick : MonoBehaviour
 {
@@ -39,6 +40,20 @@ public class LoadSongOnClick : MonoBehaviour
                 index = 4;
             else
                 index--;
+        }
+
+        Button EasyButton = GameObject.Find("EasyDiffButton").GetComponent<Button>();
+        Button AdvButton = GameObject.Find("AdvDiffButton").GetComponent<Button>();
+        if (index == 3 || index == 4)
+        {
+            
+            EasyButton.interactable = false;
+            AdvButton.interactable = false;
+        }
+        else
+        {
+            EasyButton.interactable = true;
+            AdvButton.interactable = true;
         }
     }
 }
