@@ -118,14 +118,16 @@ public class NoteGenerator : MonoBehaviour
         }
         if(stemsDonePlaying != 0)
         {
-            highScoreController.SetHighScore();
+            highScoreController.SongOver();
             print("song over");
             GameObject songOverParent = GameObject.Find("Canvas");
+            GameObject ActiveGameGroup = GameObject.Find("ActiveGameGroup");
             GameObject songOver = songOverParent.transform.FindChild("FinalScoreGroup").gameObject;
             GameObject gameplay = songOverParent.transform.FindChild("GameplayGroup").gameObject;
             spectrumVisual.DestroySpectrumTriangles();
             gameplay.SetActive(false);
             songOver.SetActive(true);
+            ActiveGameGroup.SetActive(false);
         }
     }
 

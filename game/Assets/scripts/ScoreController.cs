@@ -3,20 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScoreController : MonoBehaviour {
+public class ScoreController : MonoBehaviour
+{
 
     public Text scoreText, multiplyerText, finalScoreText;
     private static double score;
     private double multiplyer;
 
-    //
-    int count;
-    //
-
     int highscore;
     static string highscoreKey;
-	// Use this for initialization
-	void Start () {
+
+    void Start()
+    {
         // Will need to differentiate song# + difficulty for each high score, so highscore key will look like 'e_HIGH_SCORE_1' depending on difficulty and song#.
         // This is just temporary
         highscoreKey = "e_HIGH_SCORE_1";
@@ -26,16 +24,12 @@ public class ScoreController : MonoBehaviour {
         score = 0;
         multiplyer = 1;
         UpdateScore();
+    }
 
-        //
-        count = 0;
-        //
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        count++;
-	}
+    // Update is called once per frame
+    //void Update () {
+
+    //}
 
     public void IncScore()
     {
@@ -54,17 +48,12 @@ public class ScoreController : MonoBehaviour {
     {
         scoreText.text = ((int)score).ToString("D8");
         multiplyerText.text = "x" + multiplyer.ToString("0.00");
-        finalScoreText.text = "Final Score \n~" + scoreText.text + "~";
+        finalScoreText.text = "<size=135>FINAL SCORE</size>\n~--~~--~--~--~\n~ <size=180>" + scoreText.text + "</size> ~\n~--~~--~--~--~";
     }
 
-    public void SetHighScore()
+    public void SongOver()
     {
-
         if (score > highscore)
-        {
-            print("High score being set: score=" + score + ", highscore=" + highscore);
             PlayerPrefs.SetInt(highscoreKey, (int)score);
-        }
-        print(PlayerPrefs.GetInt(highscoreKey));
     }
 }

@@ -15,9 +15,9 @@ public class DisplayHighScores : MonoBehaviour {
 		EasyHighScores = new int[3] { PlayerPrefs.GetInt("e_HIGH_SCORE_1"), PlayerPrefs.GetInt("e_HIGH_SCORE_2"), PlayerPrefs.GetInt("e_HIGH_SCORE_3")};
         AdvHighScores = new int[3] { PlayerPrefs.GetInt("a_HIGH_SCORE_1"), PlayerPrefs.GetInt("a_HIGH_SCORE_2"), PlayerPrefs.GetInt("a_HIGH_SCORE_3") };
 
-        highScoreText.text = ("<size=200><color=#ffa500ff>Track 1</color></size>\n<size=100>" + EasyHighScores[0].ToString("D8") + "\t" + AdvHighScores[0].ToString("D8") + "</size>\n\n\n" +
-            "<size=200><color=#ff0000ff>Track 2</color></size>\n<size=100>" + EasyHighScores[1].ToString("D8") + "\t" + AdvHighScores[1].ToString("D8") + "</size>\n\n\n" +
-            "<size=200><color=#00ff00ff>Track 3</color></size>\n<size=100>" + EasyHighScores[2].ToString("D8") + "\t" + AdvHighScores[2].ToString("D8") + "</size>");
+        highScoreText.text = ("<size=150><color=white>ONE</color></size>\nEASY\t\tADV\n<size=100>" + EasyHighScores[0].ToString("D8") + "\t" + AdvHighScores[0].ToString("D8") + "</size>\n\n\n" +
+            "<size=150><color=white>TWO</color></size>\nEASY\t\tADV\n<size=100>" + EasyHighScores[1].ToString("D8") + "\t" + AdvHighScores[1].ToString("D8") + "</size>\n\n\n" +
+            "<size=150><color=white>THREE</color></size>\nEASY\t\tADV\n<size=100>" + EasyHighScores[2].ToString("D8") + "\t" + AdvHighScores[2].ToString("D8") + "</size>\n\n\n");
 
         print(EasyHighScores[0]);
     }
