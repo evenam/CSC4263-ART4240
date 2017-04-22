@@ -464,7 +464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clip1: {fileID: 8300000, guid: 3010405ec5a764e6484e22a2822f0e0f, type: 3}
-  clip2: {fileID: 8300000, guid: e9446ec036bcec24b90a9a53f1dab448, type: 3}
+  clip2: {fileID: 8300000, guid: 3069ee739d44b7a42ab0f83c4f8bdd9c, type: 3}
   clip3: {fileID: 8300000, guid: 6a0a76e36c06a4b84bca5047d2f64a6e, type: 3}
 --- !u!4 &606552226
 Transform:
