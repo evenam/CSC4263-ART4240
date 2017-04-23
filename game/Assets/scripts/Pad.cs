@@ -118,7 +118,7 @@ public class Pad : MonoBehaviour {
 		if (alert <= 0) {
 			state = State.OFF;
 
-            scoreCont.incScore();   //increases the score on successful hit
+            scoreCont.IncScore();   //increases the score on successful hit
         }
 		// Only reset stem when user hits a note
 		// TODO: play a miss sound effect
@@ -133,19 +133,22 @@ public class Pad : MonoBehaviour {
 		if (alert <= 0) {
 			state = State.OFF;
 
-            scoreCont.multiplyerReset();    //resets the multiplyer to x1
+            scoreCont.MultiplyerReset();    //resets the multiplyer to x1
 		}
-		Camera.main.GetComponents<AudioSource>()[currentBeat.stemIndex].volume = 0f;
+		if (!Camera.main.GetComponent<NoteGenerator>().godMode)
+		{
+			Camera.main.GetComponents<AudioSource>()[currentBeat.stemIndex].volume = 0f;
+		}
 	}
 
 	// Called when this pad should pre-animate a beat
-	public void onReady(NoteData beat) {
+	public void onReady(NoteData beat, float scale) {
 		// Spawn an indicator. It will destroy itself
 		GameObject instance = Instantiate(indicatorRef, this.transform.position, this.transform.rotation);
 		// move the instance above this game object
 		// Unity is stupid.
-		instance.transform.position = new Vector3(instance.transform.position.x - 0.032236f, instance.transform.position.y - 0.026407f, 2.0f);
-
+		instance.transform.position = new Vector3(instance.transform.position.x, instance.transform.position.y, 55.0f);
+		instance.transform.localScale = new Vector3(scale, scale, 1);
 		StartCoroutine(this.onBeat (beat));
 	}
 

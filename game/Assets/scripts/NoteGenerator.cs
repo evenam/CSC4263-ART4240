@@ -13,10 +13,13 @@ public class NoteGenerator : MonoBehaviour
 	// The time of the "GET READY" animation, should there be one.
 	public float prepTime = 3;
 	// The total time from the beginning of the pad animation to the onset in the song
-	public static float animationTime = 1.2f;
+	public static float animationTime = 0.4f;
 
 	// TODO: make this work with difficulty selection.
 	public bool isEasy = true;
+
+	// True if missing a note does nothing
+	public bool godMode = false;
 
 	// countdown box
 	public Text uiTextCountdown;
@@ -27,6 +30,12 @@ public class NoteGenerator : MonoBehaviour
 	SongData song;
 	List<NoteData> notesToUse;
 
+    public ScoreController highScoreController;
+    public SpectrumToVisual spectrumVisual;
+
+    // counts number of stems so song ends correctly for both easy and adv
+    int stemCount = 0;
+
 	// Use this for initialization
 	void Start()
 	{
@@ -35,23 +44,36 @@ public class NoteGenerator : MonoBehaviour
         StartCoroutine(waitForSongCoroutine());
 
 		// Load the song data
-		song = new SongData(Application.dataPath+"/Resources/Music/example_song/example_song.dat");
+		// song = new SongData(Application.dataPath+"/Resources/Music/example_song/example_song.dat");
 
-		// stems: example_track/track_pad.wav
+        // Now gets which song to play from which song is selected in song select.
+        // Will play last song selected when the game is running, so to test different songs have to start from song select.
+        song = new SongData(Application.dataPath + PlayerPrefs.GetString("songPath"));
+        // Gets song difficulty the same way, but can save bool with PlayerPrefs so used 1 = easy, 0 = hard.
+        if (PlayerPrefs.GetInt("songDifficulty") == 1)
+            isEasy = true;
+        else
+            isEasy = false;
 
-		// Load audio sources for every stem
-		foreach (string stem in song.stems)
+        // stems: example_track/track_pad.wav
+
+        // Load audio sources for every stem
+        foreach (string stem in song.stems)
 		{
 			Debug.Log(stem);
 			AudioSource src = gameObject.AddComponent<AudioSource>();
 			src.clip = Resources.Load("Music/"+stem) as AudioClip;
+
+            stemCount++;
 		}
 
 		if (isEasy)
 			notesToUse = song.easyNoteData;
 		else
 			notesToUse = song.advNoteData;
-			
+
+
+        highScoreController = new ScoreController();
 
 		// TODO: Give the user some indication a song is about to start
 
@@ -80,7 +102,7 @@ public class NoteGenerator : MonoBehaviour
 	// TODO: handle the obviously-omitted end of song case
 	void deployBeat() {
 		NoteData note = notesToUse[index];
-		pads[note.midiPadIndex].GetComponent<Pad>().onReady(note);
+		pads[note.midiPadIndex].GetComponent<Pad>().onReady(note, isEasy ? 0.65f : 0.15f);
 		index++;
 		// if this note is a chord
 		while (notesToUse[index].offsetMS == note.offsetMS)
@@ -110,12 +132,16 @@ public class NoteGenerator : MonoBehaviour
         }
         if(stemsDonePlaying != 0)
         {
+            highScoreController.SongOver();
             print("song over");
             GameObject songOverParent = GameObject.Find("Canvas");
+            GameObject ActiveGameGroup = GameObject.Find("ActiveGameGroup");
             GameObject songOver = songOverParent.transform.FindChild("FinalScoreGroup").gameObject;
             GameObject gameplay = songOverParent.transform.FindChild("GameplayGroup").gameObject;
+            spectrumVisual.DestroySpectrumTriangles();
             gameplay.SetActive(false);
             songOver.SetActive(true);
+            ActiveGameGroup.SetActive(false);
         }
     }
 
@@ -130,7 +156,7 @@ public class NoteGenerator : MonoBehaviour
             }
         }
         // Added this so the counter is reset if not all of the stems are finished playing.
-        if (stemsDonePlaying < 4)
+        if (stemsDonePlaying < stemCount)
             stemsDonePlaying = 0;
     }
 
