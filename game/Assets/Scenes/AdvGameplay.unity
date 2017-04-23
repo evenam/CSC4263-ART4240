@@ -217,9 +217,17 @@ MonoBehaviour:
   - {fileID: 822512316}
   - {fileID: 102886460}
   - {fileID: 29437869}
-  prepTime: 3
   isEasy: 0
+  godMode: 0
   uiTextCountdown: {fileID: 0}
+  highScoreController: {fileID: 0}
+  spectrumVisual: {fileID: 0}
+  songDatFiles:
+  - {fileID: 4900000, guid: 9999d7968bdf9b04885be4dd548bcf91, type: 3}
+  - {fileID: 4900000, guid: 377d833650706e445b4c510fdc9234d1, type: 3}
+  - {fileID: 4900000, guid: a81de1aee53b4ff4b9171b6550cb80bc, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!81 &138514466
 AudioListener:
   m_ObjectHideFlags: 0
