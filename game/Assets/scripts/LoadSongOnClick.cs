@@ -20,8 +20,9 @@ public class LoadSongOnClick : MonoBehaviour
 
     public void LoadSongByIndex(int isEasy)
     {
-        print("index: " + index + ", song: " + songs[index] + ", isEasy: " + isEasy);
-        PlayerPrefs.SetString("songPath", songs[index]);
+		print("index: " + index + ", song: " + songs[index] + ", isEasy: " + isEasy);
+		PlayerPrefs.SetString("songPath", songs[index]);
+		PlayerPrefs.SetInt("songIndex", index);
         PlayerPrefs.SetInt("songDifficulty", isEasy);
     }
 

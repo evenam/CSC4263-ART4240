@@ -108,7 +108,7 @@ public class SongData
         }
     }
 
-    public SongData(string filename)
+    public SongData(string contents)
     {
         stems = new List<string>();
         easyNoteData = new List<NoteData>();
@@ -117,7 +117,7 @@ public class SongData
         {
             // file reading stuff
             string line;
-            StreamReader theReader = new StreamReader(filename, Encoding.Default);
+            StringReader theReader = new StringReader(contents);
             using (theReader)
             {
                 do

@@ -49,6 +49,8 @@ public class NoteGenerator : MonoBehaviour
 	int stemsDonePlaying = 0;
 	bool songsArePlaying = false;
 
+	public TextAsset[] songDatFiles;
+
 	// Use this for initialization
 	void Start()
 	{
@@ -57,7 +59,7 @@ public class NoteGenerator : MonoBehaviour
 
         // Now gets which song to play from which song is selected in song select.
         // Will play last song selected when the game is running, so to test different songs have to start from song select.
-        song = new SongData(Application.dataPath + PlayerPrefs.GetString("songPath"));
+		song = new SongData(songDatFiles[PlayerPrefs.GetInt("songIndex")].text);
         // Gets song difficulty the same way, but can save bool with PlayerPrefs so used 1 = easy, 0 = hard.
         if (PlayerPrefs.GetInt("songDifficulty") == 1)
             isEasy = true;

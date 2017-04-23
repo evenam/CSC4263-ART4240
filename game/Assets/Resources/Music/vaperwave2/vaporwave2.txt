@@ -1,7 +1,7 @@
 Title: "Vaporwave 2"
 Artist: "Everett"
 BPM: 82
-Stems: "vaperwave2/vaporwave2_sax.mp3", "vaperwave2/vaporwave2_oldkick.mp3", "vaperwave2/vaporwave2_oldprc.mp3", "vaperwave2/vaporwave2_leads.mp3", "vaperwave2/vaporwave2_newkick.mp3", "vaperwave2/vaporwave2_newsnare.mp3", "vaperwave2/vaporwave2_newhat.mp3", "ADV4.WAV", "ADV5.WAV", "ADV6.WAV", "ADV7.WAV", "ADV8.WAV", "ADV9.WAV"
+Stems: "vaperwave2/vaporwave2_sax", "vaperwave2/vaporwave2_oldkick", "vaperwave2/vaporwave2_oldprc", "vaperwave2/vaporwave2_leads", "vaperwave2/vaporwave2_newkick", "vaperwave2/vaporwave2_newsnare", "vaperwave2/vaporwave2_newhat", "ADV4", "ADV5", "ADV6", "ADV7", "ADV8", "ADV9"
 
 // song bars begin at 0
 Offset: 0
