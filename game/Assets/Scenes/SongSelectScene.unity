@@ -213,7 +213,6 @@ GameObject:
   - component: {fileID: 352039972}
   - component: {fileID: 352039971}
   - component: {fileID: 352039970}
-  - component: {fileID: 352039973}
   m_Layer: 5
   m_Name: RightButton
   m_TagString: Untagged
@@ -300,17 +299,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 352039973}
-        m_MethodName: DisableButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &352039971
@@ -346,17 +334,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 352039968}
---- !u!114 &352039973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 352039968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 761ed68921fac614c9cdfc7a59e28f36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &452573143
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,7 +400,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 21300000, guid: 09328c79c11120443bf9b0f7d1f44968, type: 3}
-    m_DisabledSprite: {fileID: 21300000, guid: 02bb1fd957f76aa4890e66704cd1d07a, type: 3}
+    m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -1398,7 +1375,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 21300000, guid: 9c6ce9d6526fc934db934474bbbe96be, type: 3}
-    m_DisabledSprite: {fileID: 21300000, guid: a9dc8c50bdbe23d47a3ca4dbb84a2ac9, type: 3}
+    m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
