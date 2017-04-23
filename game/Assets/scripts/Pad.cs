@@ -10,10 +10,15 @@ public class Pad : MonoBehaviour {
 
 	public KeyCode triggerKey;
 
-	public const uint windowMS = 250;
+	// Time user has to hit a note. (Length of acceptable time)
+	// Time starts from when this pad receives the cue to begin the ring animaton.
+	public const uint windowMS = 300;
+	// Amount of time to push back the window. The total amount of time the user has 
+	// to input a beat is unchanged, but increasing this value will push the valid window 
+	// back, allowing for late beats.
+	public const uint windowOffsetMS = 50;
+	// Time to flash red for a wrong note or green for a correct note.
 	public const uint alertMS = 100;
-
-	public int wrongMS = 100;
 
 	// Reference to indicator that will be instantiated and destroyed
 	public GameObject indicatorRef;
@@ -122,8 +127,7 @@ public class Pad : MonoBehaviour {
         }
 		// Only reset stem when user hits a note
 		// TODO: play a miss sound effect
-		// TODO: reset only the missed stem maybe?
-		Invoke("resetStems", ((float)wrongMS) / 1000f);
+		resetStem(currentBeat.stemIndex);
 	}
 
 	private void handleMiss(float dt) {
@@ -142,23 +146,21 @@ public class Pad : MonoBehaviour {
 	}
 
 	// Called when this pad should pre-animate a beat
-	public void onReady(NoteData beat, float scale) {
+	public void onBeat(NoteData beat, float scale) {
 		// Spawn an indicator. It will destroy itself
 		GameObject instance = Instantiate(indicatorRef, this.transform.position, this.transform.rotation);
 		// move the instance above this game object
 		// Unity is stupid.
 		instance.transform.position = new Vector3(instance.transform.position.x, instance.transform.position.y, 55.0f);
 		instance.transform.localScale = new Vector3(scale, scale, 1);
-		StartCoroutine(this.onBeat (beat));
+		currentBeat = beat;
+		Invoke("readyPad", NoteGenerator.animationTime - ((windowMS - windowOffsetMS) / 1000.0f));
 	}
 
-	// Called when this pad should perform a beat
-	public IEnumerator onBeat(NoteData beat) {
-		yield return new WaitForSeconds(NoteGenerator.animationTime);
-		currentBeat = beat;
+	// Sets the pad to accept touches. Called a certain time after the indicator has been spawned
+	public void readyPad() {
 		state = State.READY;
 		window = windowMS / 1000.0f;
-		print("Pad " + beat.midiPadIndex + " got note at " + beat.offsetMS);
 	}
 
 	private void hitTheNote() {
@@ -174,9 +176,8 @@ public class Pad : MonoBehaviour {
 		}
 	}
 
-	void resetStems()
+	void resetStem(uint stemIndex)
 	{
-		foreach (AudioSource src in Camera.main.GetComponents<AudioSource>())
-			src.volume = 1.0f;
+		Camera.main.GetComponents<AudioSource>()[stemIndex].volume = 1.0f;
 	}
 }

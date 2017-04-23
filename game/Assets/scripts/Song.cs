@@ -197,14 +197,3 @@ public class SongData
         // TODO: persistant highscores using unity's build in score system
     }
 }
-
-public class Song : MonoBehaviour
-{
-	// used this to test.
-	public void Start()
-	{
-		print(Application.persistentDataPath);
-		SongData x = new SongData("<PATH_OMITTED>");
-		Debug.Break();
-	}
-}

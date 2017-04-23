@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class IndicatorBehavior : MonoBehaviour {
 
-	private float animationTime = 1.0f / NoteGenerator.animationTime;
-	public float time = 0.0f;
-
 	void Start() {
-		gameObject.GetComponent<Animator> ().speed = animationTime;
-		Destroy (gameObject, animationTime); 
+		// Play animations at 24fps. They look better that way.
+		gameObject.GetComponent<Animator>().speed = NoteGenerator.animationScale;
+		// Destroy animation only after the sparkles are done. 
+		Destroy (gameObject, NoteGenerator.trueAnimationTime); 
 	}
 
 	void Update() {

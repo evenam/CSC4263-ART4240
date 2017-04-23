@@ -11,9 +11,17 @@ public class NoteGenerator : MonoBehaviour
 	// References to the pad gameobjects
 	public GameObject[] pads;
 	// The time of the "GET READY" animation, should there be one.
-	public float prepTime = 3;
+	public static float prepTime = 3.0f;
+	// Scaling factor of the animation. We like it better when played at double speed.
+	// Retrieved by IndicatorBehavior and passed to Animator.speed there.
+	public static int animationScale = 2;
+	// The full length of the animation.
+	// Should only be changed if the animation file itself changes.
+	public static float trueAnimationTime = 2.5f / animationScale;
 	// The total time from the beginning of the pad animation to the onset in the song
-	public static float animationTime = 0.4f;
+	// Animation time is 2.5 seconds, but the animation includes a sparkle effect that lasts 14 frames
+	// The animation should be treated as a 16 frame animation at 12 fps. 
+	public static float animationTime = 1.333333333f / animationScale;
 
 	// TODO: make this work with difficulty selection.
 	public bool isEasy = true;
@@ -23,6 +31,7 @@ public class NoteGenerator : MonoBehaviour
 
 	// countdown box
 	public Text uiTextCountdown;
+	// int version of prepTime
 	private int countdownSecondsRemaining;
 
 	int index = 0;
@@ -36,13 +45,13 @@ public class NoteGenerator : MonoBehaviour
     // counts number of stems so song ends correctly for both easy and adv
     int stemCount = 0;
 
+	// Track completion of song
+	int stemsDonePlaying = 0;
+	bool songsArePlaying = false;
+
 	// Use this for initialization
 	void Start()
 	{
-        // The stems don't start playing instantly, so I made it so it waits 5 
-        // seconds before checking if each of the audio sources are done playing.
-        StartCoroutine(waitForSongCoroutine());
-
 		// Load the song data
 		// song = new SongData(Application.dataPath+"/Resources/Music/example_song/example_song.dat");
 
@@ -75,12 +84,10 @@ public class NoteGenerator : MonoBehaviour
 
         highScoreController = new ScoreController();
 
-		// TODO: Give the user some indication a song is about to start
-
 		// Does unity have a better way to "sleep"?
 		Invoke("afterPreSong", prepTime);
 
-		countdownSecondsRemaining = 3;
+		countdownSecondsRemaining = (int)prepTime;
 		Countdown ();
 	}
 
@@ -97,17 +104,17 @@ public class NoteGenerator : MonoBehaviour
 		{
 			src.Play();
 		}
+		songsArePlaying = true;
 	}
 
-	// TODO: handle the obviously-omitted end of song case
 	void deployBeat() {
 		NoteData note = notesToUse[index];
-		pads[note.midiPadIndex].GetComponent<Pad>().onReady(note, isEasy ? 0.65f : 0.15f);
+		pads[note.midiPadIndex].GetComponent<Pad>().onBeat(note, isEasy ? 0.65f : 0.15f);
 		index++;
 		// if this note is a chord
 		while (notesToUse[index].offsetMS == note.offsetMS)
 		{
-			pads[notesToUse[index].midiPadIndex].GetComponent<Pad>().onBeat(notesToUse[index]);
+			pads[notesToUse[index].midiPadIndex].GetComponent<Pad>().onBeat(notesToUse[index], isEasy ? 0.65f : 0.15f);
 			index++;
 		}
 
@@ -115,14 +122,6 @@ public class NoteGenerator : MonoBehaviour
 		// Invoke is in seconds, not milliseconds
 		Invoke("deployBeat", (float)(notesToUse[index].offsetMS - note.offsetMS) / 1000F);
 	}
-
-    int stemsDonePlaying = 0;
-    bool songsArePlaying = false;
-    public IEnumerator waitForSongCoroutine()
-    {
-        yield return new WaitForSeconds(5);
-        songsArePlaying = true;
-    }
 
     private void Update()
     {
@@ -132,6 +131,8 @@ public class NoteGenerator : MonoBehaviour
         }
         if(stemsDonePlaying != 0)
         {
+			// The song is over
+			songsArePlaying = false;
             highScoreController.SongOver();
             print("song over");
             GameObject songOverParent = GameObject.Find("Canvas");
@@ -156,7 +157,7 @@ public class NoteGenerator : MonoBehaviour
             }
         }
         // Added this so the counter is reset if not all of the stems are finished playing.
-        if (stemsDonePlaying < stemCount)
+		if (stemsDonePlaying < song.stems.Count)
             stemsDonePlaying = 0;
     }
 
