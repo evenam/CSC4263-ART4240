@@ -12,7 +12,11 @@ public class Pad : MonoBehaviour {
 
 	// Time user has to hit a note. (Length of acceptable time)
 	// Time starts from when this pad receives the cue to begin the ring animaton.
-	public const uint windowMS = 250;
+	public const uint windowMS = 300;
+	// Amount of time to push back the window. The total amount of time the user has 
+	// to input a beat is unchanged, but increasing this value will push the valid window 
+	// back, allowing for late beats.
+	public const uint windowOffsetMS = 50;
 	// Time to flash red for a wrong note or green for a correct note.
 	public const uint alertMS = 100;
 
@@ -149,15 +153,14 @@ public class Pad : MonoBehaviour {
 		// Unity is stupid.
 		instance.transform.position = new Vector3(instance.transform.position.x, instance.transform.position.y, 55.0f);
 		instance.transform.localScale = new Vector3(scale, scale, 1);
-		this.onBeatNoAnimate(beat);
+		currentBeat = beat;
+		Invoke("readyPad", NoteGenerator.animationTime - ((windowMS - windowOffsetMS) / 1000.0f));
 	}
 
-	// Called when this pad should perform a beat. Skips the indicator animation
-	public void onBeatNoAnimate(NoteData beat) {
-		currentBeat = beat;
+	// Sets the pad to accept touches. Called a certain time after the indicator has been spawned
+	public void readyPad() {
 		state = State.READY;
 		window = windowMS / 1000.0f;
-		print("Pad " + beat.midiPadIndex + " got note at " + beat.offsetMS);
 	}
 
 	private void hitTheNote() {
