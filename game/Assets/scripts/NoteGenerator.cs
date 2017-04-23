@@ -59,8 +59,8 @@ public class NoteGenerator : MonoBehaviour
 
         // Now gets which song to play from which song is selected in song select.
         // Will play last song selected when the game is running, so to test different songs have to start from song select.
-		int index = PlayerPrefs.GetInt("songIndex");
-		song = new SongData(songDatFiles[index].text);
+		int songIndex = PlayerPrefs.GetInt("songIndex");
+		song = new SongData(songDatFiles[songIndex].text);
         // Gets song difficulty the same way, but can save bool with PlayerPrefs so used 1 = easy, 0 = hard.
         if (PlayerPrefs.GetInt("songDifficulty") == 1)
             isEasy = true;
@@ -117,7 +117,7 @@ public class NoteGenerator : MonoBehaviour
 		// if this note is a chord
 		while (notesToUse[index].offsetMS == note.offsetMS)
 		{
-			pads[notesToUse[index].midiPadIndex].GetComponent<Pad>().onBeat(notesToUse[index], isEasy ? 0.65f : 0.15f);
+			pads[notesToUse[index].midiPadIndex].GetComponent<Pad>().onBeat(notesToUse[index], isEasy ? 0.65f : 0.435480667768927f);
 			index++;
 		}
 
