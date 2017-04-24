@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class DisableDuringRotation : MonoBehaviour {
 
-    public Button buttonToBeDisabled;
+    // Both left and right arrows to be disbaled while poly is rotating
+    public Button buttonToBeDisabled1;
+    public Button buttonToBeDisabled2;
 
     void Start ()
     {
@@ -19,13 +21,15 @@ public class DisableDuringRotation : MonoBehaviour {
 
     public void DisableButton()
     {
-        buttonToBeDisabled.interactable = false;
+        buttonToBeDisabled1.interactable = false;
+        buttonToBeDisabled2.interactable = false;
         StartCoroutine(WaitForRotate());
     }
 
     public IEnumerator WaitForRotate()
     {
         yield return new WaitForSeconds(1);
-        buttonToBeDisabled.interactable = true;
+        buttonToBeDisabled1.interactable = true;
+        buttonToBeDisabled2.interactable = true;
     }
 }

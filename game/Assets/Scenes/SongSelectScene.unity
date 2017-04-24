@@ -357,7 +357,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761ed68921fac614c9cdfc7a59e28f36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonToBeDisabled: {fileID: 352039970}
+  buttonToBeDisabled1: {fileID: 352039970}
+  buttonToBeDisabled2: {fileID: 2030293806}
 --- !u!1 &452573143
 GameObject:
   m_ObjectHideFlags: 0
@@ -1356,7 +1357,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761ed68921fac614c9cdfc7a59e28f36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonToBeDisabled: {fileID: 2030293806}
+  buttonToBeDisabled1: {fileID: 352039970}
+  buttonToBeDisabled2: {fileID: 2030293806}
 --- !u!1 &2061819123
 GameObject:
   m_ObjectHideFlags: 0
