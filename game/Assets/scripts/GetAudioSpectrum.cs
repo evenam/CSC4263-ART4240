@@ -22,7 +22,7 @@ public class GetAudioSpectrum : MonoBehaviour {
         else
             print("No song selected.");
 
-        audioSource.PlayDelayed(3);
+		audioSource.PlayDelayed(NoteGenerator.prepTime + NoteGenerator.trueAnimationTime);
     }
 
     // Update is called once per frame
