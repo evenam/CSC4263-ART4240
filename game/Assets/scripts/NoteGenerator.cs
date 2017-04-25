@@ -27,7 +27,7 @@ public class NoteGenerator : MonoBehaviour
 	public bool isEasy = true;
 
 	// True if missing a note does nothing
-	public bool godMode = false;
+	public bool godMode = true;
 
 	// countdown box
 	public Text uiTextCountdown;

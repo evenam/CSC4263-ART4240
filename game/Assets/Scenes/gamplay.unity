@@ -2441,7 +2441,7 @@ MonoBehaviour:
   - {fileID: 1966677265}
   - {fileID: 45568912}
   isEasy: 1
-  godMode: 0
+  godMode: 1
   uiTextCountdown: {fileID: 952275311}
   highScoreController: {fileID: 496016194}
   spectrumVisual: {fileID: 1097011406}
