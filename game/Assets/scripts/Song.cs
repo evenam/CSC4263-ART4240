@@ -13,6 +13,7 @@ public struct NoteData
     public uint bar;
     public uint fraction;
     public uint offsetMS;
+	public bool shouldCutOnMiss;
 }
 
 public class SongData
@@ -94,6 +95,15 @@ public class SongData
 		double beatsPerMilli = (this.notePrecision / 4.0) * (double)(this.BPM) / 60d / 1000d;
 		double beatIndex = ((data.bar * this.notePrecision) + data.fraction);
 		data.offsetMS = (uint)(beatIndex / beatsPerMilli);
+		if (sArgs.Length > 5)
+		{
+			// Ints cannot be cast to bools. C# why.
+			data.shouldCutOnMiss = UInt32.Parse(sArgs[5]) == 1;
+		}
+		else
+		{
+			data.shouldCutOnMiss = true;
+		}
         return data;
     }
 

@@ -139,7 +139,7 @@ public class Pad : MonoBehaviour {
 
             scoreCont.MultiplyerReset();    //resets the multiplyer to x1
 		}
-		if (!Camera.main.GetComponent<NoteGenerator>().godMode)
+		if (!Camera.main.GetComponent<NoteGenerator>().godMode && currentBeat.shouldCutOnMiss)
 		{
 			Camera.main.GetComponents<AudioSource>()[currentBeat.stemIndex].volume = 0f;
 		}
