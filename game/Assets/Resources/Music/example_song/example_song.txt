@@ -61,123 +61,123 @@ EasyNote: 0, 0, 0, 28, 6
 EasyNote: 0, 0, 0, 31, 2
 
 // kick pattern
-EasyNote: 1, 1, 0, 0, 0
-EasyNote: 1, 1, 0, 0, 1
-EasyNote: 1, 1, 0, 0, 7
-EasyNote: 1, 1, 0, 1, 0
-EasyNote: 1, 1, 0, 1, 1
-EasyNote: 1, 1, 0, 2, 0
-EasyNote: 1, 1, 0, 2, 1
-EasyNote: 1, 1, 0, 2, 7
-EasyNote: 1, 1, 0, 3, 0
-EasyNote: 1, 1, 0, 3, 1
-EasyNote: 1, 1, 0, 4, 0
-EasyNote: 1, 1, 0, 4, 1
-EasyNote: 1, 1, 0, 4, 7
-EasyNote: 1, 1, 0, 5, 0
-EasyNote: 1, 1, 0, 5, 1
-EasyNote: 1, 1, 0, 6, 0
-EasyNote: 1, 1, 0, 6, 1
-EasyNote: 1, 1, 0, 6, 7
-EasyNote: 1, 1, 0, 7, 0
-EasyNote: 1, 1, 0, 7, 1
+EasyNote: 1, 1, 0, 0, 0, 0
+EasyNote: 1, 1, 0, 0, 1, 0
+EasyNote: 1, 1, 0, 0, 7, 0
+EasyNote: 1, 1, 0, 1, 0, 0
+EasyNote: 1, 1, 0, 1, 1, 0
+EasyNote: 1, 1, 0, 2, 0, 0
+EasyNote: 1, 1, 0, 2, 1, 0
+EasyNote: 1, 1, 0, 2, 7, 0
+EasyNote: 1, 1, 0, 3, 0, 0
+EasyNote: 1, 1, 0, 3, 1, 0
+EasyNote: 1, 1, 0, 4, 0, 0
+EasyNote: 1, 1, 0, 4, 1, 0
+EasyNote: 1, 1, 0, 4, 7, 0
+EasyNote: 1, 1, 0, 5, 0, 0
+EasyNote: 1, 1, 0, 5, 1, 0
+EasyNote: 1, 1, 0, 6, 0, 0
+EasyNote: 1, 1, 0, 6, 1, 0
+EasyNote: 1, 1, 0, 6, 7, 0
+EasyNote: 1, 1, 0, 7, 0, 0
+EasyNote: 1, 1, 0, 7, 1, 0
 // kick pattern
-EasyNote: 1, 1, 0, 8, 0
-EasyNote: 1, 1, 0, 8, 1
-EasyNote: 1, 1, 0, 8, 7
-EasyNote: 1, 1, 0, 9, 0
-EasyNote: 1, 1, 0, 9, 1
-EasyNote: 1, 1, 0, 10, 0
-EasyNote: 1, 1, 0, 10, 1
-EasyNote: 1, 1, 0, 10, 7
-EasyNote: 1, 1, 0, 11, 0
-EasyNote: 1, 1, 0, 11, 1
-EasyNote: 1, 1, 0, 12, 0
-EasyNote: 1, 1, 0, 12, 1
-EasyNote: 1, 1, 0, 12, 7
-EasyNote: 1, 1, 0, 13, 0
-EasyNote: 1, 1, 0, 13, 1
-EasyNote: 1, 1, 0, 14, 0
-EasyNote: 1, 1, 0, 14, 1
-EasyNote: 1, 1, 0, 14, 7
-EasyNote: 1, 1, 0, 15, 0
-EasyNote: 1, 1, 0, 15, 1
+EasyNote: 1, 1, 0, 8, 0, 0
+EasyNote: 1, 1, 0, 8, 1, 0
+EasyNote: 1, 1, 0, 8, 7, 0
+EasyNote: 1, 1, 0, 9, 0, 0
+EasyNote: 1, 1, 0, 9, 1, 0
+EasyNote: 1, 1, 0, 10, 0, 0
+EasyNote: 1, 1, 0, 10, 1, 0
+EasyNote: 1, 1, 0, 10, 7, 0
+EasyNote: 1, 1, 0, 11, 0, 0
+EasyNote: 1, 1, 0, 11, 1, 0
+EasyNote: 1, 1, 0, 12, 0, 0
+EasyNote: 1, 1, 0, 12, 1, 0
+EasyNote: 1, 1, 0, 12, 7, 0
+EasyNote: 1, 1, 0, 13, 0, 0
+EasyNote: 1, 1, 0, 13, 1, 0
+EasyNote: 1, 1, 0, 14, 0, 0
+EasyNote: 1, 1, 0, 14, 1, 0
+EasyNote: 1, 1, 0, 14, 7, 0
+EasyNote: 1, 1, 0, 15, 0, 0
+EasyNote: 1, 1, 0, 15, 1, 0
 // kick pattern
-EasyNote: 1, 1, 0, 16, 0
-EasyNote: 1, 1, 0, 16, 1
-EasyNote: 1, 1, 0, 16, 7
-EasyNote: 1, 1, 0, 17, 0
-EasyNote: 1, 1, 0, 17, 1
-EasyNote: 1, 1, 0, 18, 0
-EasyNote: 1, 1, 0, 18, 1
-EasyNote: 1, 1, 0, 18, 7
-EasyNote: 1, 1, 0, 19, 0
-EasyNote: 1, 1, 0, 19, 1
-EasyNote: 1, 1, 0, 20, 0
-EasyNote: 1, 1, 0, 20, 1
-EasyNote: 1, 1, 0, 20, 7
-EasyNote: 1, 1, 0, 21, 0
-EasyNote: 1, 1, 0, 21, 1
-EasyNote: 1, 1, 0, 22, 0
-EasyNote: 1, 1, 0, 22, 1
-EasyNote: 1, 1, 0, 22, 7
-EasyNote: 1, 1, 0, 23, 0
-EasyNote: 1, 1, 0, 23, 1
+EasyNote: 1, 1, 0, 16, 0, 0
+EasyNote: 1, 1, 0, 16, 1, 0
+EasyNote: 1, 1, 0, 16, 7, 0
+EasyNote: 1, 1, 0, 17, 0, 0
+EasyNote: 1, 1, 0, 17, 1, 0
+EasyNote: 1, 1, 0, 18, 0, 0
+EasyNote: 1, 1, 0, 18, 1, 0
+EasyNote: 1, 1, 0, 18, 7, 0
+EasyNote: 1, 1, 0, 19, 0, 0
+EasyNote: 1, 1, 0, 19, 1, 0
+EasyNote: 1, 1, 0, 20, 0, 0
+EasyNote: 1, 1, 0, 20, 1, 0
+EasyNote: 1, 1, 0, 20, 7, 0
+EasyNote: 1, 1, 0, 21, 0, 0
+EasyNote: 1, 1, 0, 21, 1, 0
+EasyNote: 1, 1, 0, 22, 0, 0
+EasyNote: 1, 1, 0, 22, 1, 0
+EasyNote: 1, 1, 0, 22, 7, 0
+EasyNote: 1, 1, 0, 23, 0, 0
+EasyNote: 1, 1, 0, 23, 1, 0
 // kick pattern
-EasyNote: 1, 1, 0, 24, 0
-EasyNote: 1, 1, 0, 24, 1
-EasyNote: 1, 1, 0, 24, 7
-EasyNote: 1, 1, 0, 25, 0
-EasyNote: 1, 1, 0, 25, 1
-EasyNote: 1, 1, 0, 26, 0
-EasyNote: 1, 1, 0, 26, 1
-EasyNote: 1, 1, 0, 26, 7
-EasyNote: 1, 1, 0, 27, 0
-EasyNote: 1, 1, 0, 27, 1
-EasyNote: 1, 1, 0, 28, 0
-EasyNote: 1, 1, 0, 28, 1
-EasyNote: 1, 1, 0, 28, 7
-EasyNote: 1, 1, 0, 29, 0
-EasyNote: 1, 1, 0, 29, 1
-EasyNote: 1, 1, 0, 30, 0
-EasyNote: 1, 1, 0, 30, 1
-EasyNote: 1, 1, 0, 30, 7
-EasyNote: 1, 1, 0, 31, 0
-EasyNote: 1, 1, 0, 31, 1
+EasyNote: 1, 1, 0, 24, 0, 0
+EasyNote: 1, 1, 0, 24, 1, 0
+EasyNote: 1, 1, 0, 24, 7, 0
+EasyNote: 1, 1, 0, 25, 0, 0
+EasyNote: 1, 1, 0, 25, 1, 0
+EasyNote: 1, 1, 0, 26, 0, 0
+EasyNote: 1, 1, 0, 26, 1, 0
+EasyNote: 1, 1, 0, 26, 7, 0
+EasyNote: 1, 1, 0, 27, 0, 0
+EasyNote: 1, 1, 0, 27, 1, 0
+EasyNote: 1, 1, 0, 28, 0, 0
+EasyNote: 1, 1, 0, 28, 1, 0
+EasyNote: 1, 1, 0, 28, 7, 0
+EasyNote: 1, 1, 0, 29, 0, 0
+EasyNote: 1, 1, 0, 29, 1, 0
+EasyNote: 1, 1, 0, 30, 0, 0
+EasyNote: 1, 1, 0, 30, 1, 0
+EasyNote: 1, 1, 0, 30, 7, 0
+EasyNote: 1, 1, 0, 31, 0, 0
+EasyNote: 1, 1, 0, 31, 1, 0
 
 // snare pattern lmao
-EasyNote: 2, 2, 0, 0, 4
-EasyNote: 2, 2, 0, 1, 4
-EasyNote: 2, 2, 0, 2, 4
-EasyNote: 2, 2, 0, 3, 4
-EasyNote: 2, 2, 0, 4, 4
-EasyNote: 2, 2, 0, 5, 4
-EasyNote: 2, 2, 0, 6, 4
-EasyNote: 2, 2, 0, 7, 4
-EasyNote: 2, 2, 0, 8, 4
-EasyNote: 2, 2, 0, 9, 4
-EasyNote: 2, 2, 0, 10, 4
-EasyNote: 2, 2, 0, 11, 4
-EasyNote: 2, 2, 0, 12, 4
-EasyNote: 2, 2, 0, 13, 4
-EasyNote: 2, 2, 0, 14, 4
-EasyNote: 2, 2, 0, 15, 4
-EasyNote: 2, 2, 0, 16, 4
-EasyNote: 2, 2, 0, 17, 4
-EasyNote: 2, 2, 0, 18, 4
-EasyNote: 2, 2, 0, 19, 4
-EasyNote: 2, 2, 0, 20, 4
-EasyNote: 2, 2, 0, 21, 4
-EasyNote: 2, 2, 0, 22, 4
-EasyNote: 2, 2, 0, 23, 4
-EasyNote: 2, 2, 0, 24, 4
-EasyNote: 2, 2, 0, 25, 4
-EasyNote: 2, 2, 0, 26, 4
-EasyNote: 2, 2, 0, 27, 4
-EasyNote: 2, 2, 0, 28, 4
-EasyNote: 2, 2, 0, 29, 4
-EasyNote: 2, 2, 0, 30, 4
-EasyNote: 2, 2, 0, 31, 4
+EasyNote: 2, 2, 0, 0, 4, 0
+EasyNote: 2, 2, 0, 1, 4, 0
+EasyNote: 2, 2, 0, 2, 4, 0
+EasyNote: 2, 2, 0, 3, 4, 0
+EasyNote: 2, 2, 0, 4, 4, 0
+EasyNote: 2, 2, 0, 5, 4, 0
+EasyNote: 2, 2, 0, 6, 4, 0
+EasyNote: 2, 2, 0, 7, 4, 0
+EasyNote: 2, 2, 0, 8, 4, 0
+EasyNote: 2, 2, 0, 9, 4, 0
+EasyNote: 2, 2, 0, 10, 4, 0
+EasyNote: 2, 2, 0, 11, 4, 0
+EasyNote: 2, 2, 0, 12, 4, 0
+EasyNote: 2, 2, 0, 13, 4, 0
+EasyNote: 2, 2, 0, 14, 4, 0
+EasyNote: 2, 2, 0, 15, 4, 0
+EasyNote: 2, 2, 0, 16, 4, 0
+EasyNote: 2, 2, 0, 17, 4, 0
+EasyNote: 2, 2, 0, 18, 4, 0
+EasyNote: 2, 2, 0, 19, 4, 0
+EasyNote: 2, 2, 0, 20, 4, 0
+EasyNote: 2, 2, 0, 21, 4, 0
+EasyNote: 2, 2, 0, 22, 4, 0
+EasyNote: 2, 2, 0, 23, 4, 0
+EasyNote: 2, 2, 0, 24, 4, 0
+EasyNote: 2, 2, 0, 25, 4, 0
+EasyNote: 2, 2, 0, 26, 4, 0
+EasyNote: 2, 2, 0, 27, 4, 0
+EasyNote: 2, 2, 0, 28, 4, 0
+EasyNote: 2, 2, 0, 29, 4, 0
+EasyNote: 2, 2, 0, 30, 4, 0
+EasyNote: 2, 2, 0, 31, 4, 0
 
 // Rattle
 EasyNote: 3, 3, 0, 16, 3
